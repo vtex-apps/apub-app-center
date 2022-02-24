@@ -1,8 +1,14 @@
-# [Deprecated] Admin Example
+📢 Use this project, [contribute](https://github.com/vtex-apps/apub-app-center) to it or open issues to help evolve it using [Store Discussion](https://github.com/vtex-apps/store-discussion).
 
-_We're working on our new design system. Please get in touch if you are interested._
+# # APUB App Center
 
-An example admin app that adds a menu button to the admin sidebar and a navigation via parameter example.
+<!-- DOCS-IGNORE:start -->
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
+<!-- DOCS-IGNORE:end -->
+
+Admin component that groups all the apps made in the region for quick and easy access to documentation, requirements, tutorials and demos.
 
 ### How to develop admins
 

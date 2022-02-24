@@ -1,9 +1,6 @@
 {
-  "admin-example.navigation.label-group": "Example admins",
-  "admin-example.navigation.label-table": "Example table",
-  "admin-example.navigation.search.kws": "test, mock, fake",
-  "admin-example.navigation.details.search.kws": "details, mock, test, hello",
-  "admin-example.navigation.table.search.kws": "table, mock, test, bye",
-  "admin-example.hello-world": "Example Admin",
-  "admin-example.details": "Details page"
+  "apub-app-center.navigation.label-group": "APUB App Center",
+  "apub-app-center.navigation.search.kws": "app, admin, apub, apps",
+  "apub-app-center.hello-world": "APUB App Center",
+  "apub-app-center.details": "App details page"
 }

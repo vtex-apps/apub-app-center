@@ -1,9 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import {
   Table,
-  IconArrowUp,
-  IconArrowDown,
-  IconShoppingCart,
   Input,
 } from 'vtex.styleguide'
 import faker from 'faker'
@@ -40,14 +37,6 @@ class UsersTable extends Component<Props> {
     switch (tableDensity) {
       case 'low': {
         fontSize = 'f5'
-        break
-      }
-      case 'medium': {
-        fontSize = 'f6'
-        break
-      }
-      case 'high': {
-        fontSize = 'f7'
         break
       }
       default: {
@@ -134,7 +123,6 @@ class UsersTable extends Component<Props> {
   public render() {
     const {
       items,
-      searchValue,
       filterStatements,
       tableDensity,
     }: any = this.state
@@ -152,62 +140,10 @@ class UsersTable extends Component<Props> {
           density="low"
           onRowClick={({ rowData }: any) =>
             navigate({
-              page: 'admin.app.example-detail',
+              page: 'admin.app.apub-app-center',
               params: { id: rowData.id },
             })
           }
-          toolbar={{
-            density: {
-              buttonLabel: 'Line density',
-              lowOptionLabel: 'Low',
-              mediumOptionLabel: 'Medium',
-              highOptionLabel: 'High',
-              handleCallback: (density: string) =>
-                this.setState({ tableDensity: density }),
-            },
-            inputSearch: {
-              value: searchValue,
-              placeholder: 'Search stuff...',
-              onChange: (value: string) =>
-                this.setState({ searchValue: value }),
-              onClear: () => this.setState({ searchValue: null }),
-              onSubmit: () => {},
-            },
-            download: {
-              label: 'Export',
-              handleCallback: () => alert('Callback()'),
-            },
-            upload: {
-              label: 'Import',
-              handleCallback: () => alert('Callback()'),
-            },
-            fields: {
-              label: 'Toggle visible fields',
-              showAllLabel: 'Show All',
-              hideAllLabel: 'Hide All',
-            },
-            extraActions: {
-              label: 'More options',
-              actions: [
-                {
-                  label: 'An action',
-                  handleCallback: () => alert('An action'),
-                },
-                {
-                  label: 'Another action',
-                  handleCallback: () => alert('Another action'),
-                },
-                {
-                  label: 'A third action',
-                  handleCallback: () => alert('A third action'),
-                },
-              ],
-            },
-            newLine: {
-              label: 'New',
-              handleCallback: () => alert('handle new line callback'),
-            },
-          }}
           filters={{
             alwaysVisibleFilters: ['name', 'email'],
             statements: filterStatements,
@@ -234,25 +170,6 @@ class UsersTable extends Component<Props> {
               },
             },
           }}
-          totalizers={[
-            {
-              label: 'Sales',
-              value: '420.763',
-              icon: <IconShoppingCart size={14} />,
-            },
-            {
-              label: 'Cash in',
-              value: 'R$ 890.239,05',
-              iconBackgroundColor: '#eafce3',
-              icon: <IconArrowUp color="#79B03A" size={14} />,
-            },
-
-            {
-              label: 'Cash out',
-              value: '- R$ 13.485,26',
-              icon: <IconArrowDown size={14} />,
-            },
-          ]}
           bulkActions={{
             texts: {
               secondaryActionsLabel: 'Actions',

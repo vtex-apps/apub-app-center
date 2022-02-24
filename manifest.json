@@ -1,9 +1,9 @@
 {
-  "name": "admin-example",
-  "vendor": "vtex",
+  "name": "apub-app-center",
+  "vendor": "vtexarg",
   "version": "0.0.12",
-  "title": "Example Admin App",
-  "description": "",
+  "title": "APUB App Center",
+  "description": "Apub App Center component",
   "mustUpdateAt": "2022-08-28",
   "scripts": {
     "postreleasy": "vtex publish"

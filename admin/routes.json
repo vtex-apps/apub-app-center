@@ -1,10 +1,10 @@
 {
-  "admin.app.example": {
-    "component": "AdminExample",
-    "path": "/admin/app/example"
+  "admin.app.apub-app-center": {
+    "component": "Admin",
+    "path": "/admin/app/apub-app-center"
   },
-  "admin.app.example-detail": {
-    "component": "AdminExampleDetail",
-    "path": "/admin/app/example/:id"
+  "admin.app.apub-app-center-detail": {
+    "component": "AppDetail",
+    "path": "/admin/app/apub-app-center/:id"
   }
 }

@@ -4,11 +4,11 @@ import { Layout, PageBlock, PageHeader } from 'vtex.styleguide'
 
 import './styles.global.css'
 
-const AdminExampleDetail: FC<Props> = ({ params }) => {
+const AppDetail: FC<Props> = ({ params }) => {
   return (
     <Layout
       pageHeader={
-        <PageHeader title={<FormattedMessage id="admin-example.details" />} />
+        <PageHeader title={<FormattedMessage id="apub-app-center.details" />} />
       }
     >
       <PageBlock variation="full">
@@ -24,4 +24,4 @@ interface Props {
   params: any
 }
 
-export default AdminExampleDetail
+export default AppDetail
