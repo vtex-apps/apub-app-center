@@ -1,143 +1,121 @@
-import React, { Component, Fragment } from 'react'
-import {
-  Table,
-  Input,
-} from 'vtex.styleguide'
-import faker from 'faker'
+import React, { Component } from 'react'
+// import {
+//   FilterBar,
+//   Checkbox
+// } from 'vtex.styleguide'
 import { withRuntimeContext } from 'vtex.render-runtime'
-
-const EXAMPLE_LENGTH = 100
-const MOCKED_DATA = [...Array(EXAMPLE_LENGTH)].map(() => ({
-  name: faker.name.findName(),
-  streetAddress: faker.address.streetAddress(),
-  cityStateZipAddress: `${faker.address.city()}, ${faker.address.stateAbbr()} ${faker.address.zipCode()}`,
-  email: faker.internet.email().toLowerCase(),
-}))
+import { AppData } from '../typings/appdata'
+import AppCard from './AppCard'
 
 interface Props {
   runtime: any
 }
 
+const arrCardData: AppData[] = [];
+
+function SetCardData () {
+  let app1 = {} as AppData;
+  app1.id = 1;
+  app1.name = "App1";
+  app1.photo = "/photo.jpg";
+  app1.status = "produccion";
+  app1.store = ['vtex', 'legacy'];
+  app1.category = ['admin', 'checkout'];
+
+  let app2 = {} as AppData;
+  app2.id = 2;
+  app2.name = "App2";
+  app2.photo = "/photo.jpg";
+  app2.status = "produccion";
+  app2.store = ['vtex', 'legacy'];
+  app2.category = ['admin', 'checkout'];
+
+  let app3 = {} as AppData;
+  app3.id = 3;
+  app3.name = "App3";
+  app3.photo = "/photo.jpg";
+  app3.status = "produccion";
+  app3.store = ['vtex', 'legacy'];
+  app3.category = ['admin', 'checkout'];
+
+
+  arrCardData.push(app1);
+  arrCardData.push(app2);
+  arrCardData.push(app3);
+}
+
+function RenderCards () {
+  SetCardData();
+
+  return(
+    <div className="row">
+      <div className="col-md-4">
+        {arrCardData.map((el) => {
+          return(<AppCard id={el.id} name={el.name} photo={el.photo} status={el.status} store={el.store} category={el.category} />)
+        })}
+      </div>
+    </div>
+  );
+}
+
+// function StatusSelectorObject({ value, onChange }: any) {
+//   const initialValue = {
+//     beta: false,
+//     producción: false,
+//     idea: false,
+//     ...(value || {}),
+//   }
+//   const toggleValueByKey = (key: any) => {
+//     const newValues = {
+//       ...(value || initialValue),
+//       [key]: value ? !value[key] : false,
+//     }
+//     return newValues
+//   }
+//   return (
+//     <div>
+//       {Object.keys(initialValue).map((opt, index) => {
+//         return (
+//           <div className="mb3" key={`class-statment-object-${opt}-${index}`}>
+//             <Checkbox
+//               checked={value ? value[opt] : initialValue[opt]}
+//               id={`class-${opt}`}
+//               label={opt}
+//               name="class-checkbox-group"
+//               onChange={() => {
+//                 const newValue = toggleValueByKey(`${opt}`)
+//                 onChange(newValue)
+//               }}
+//               value={opt}
+//             />
+//           </div>
+//         )
+//       })}
+//     </div>
+//   )
+// }
+
 class UsersTable extends Component<Props> {
   constructor(props: any) {
     super(props)
     this.state = {
-      items: MOCKED_DATA,
-      tableDensity: 'low',
       searchValue: null,
       filterStatements: [],
     }
   }
 
-  private getSchema() {
-    const { tableDensity }: any = this.state
-
-    let fontSize = 'f5'
-
-    switch (tableDensity) {
-      case 'low': {
-        fontSize = 'f5'
-        break
-      }
-      default: {
-        fontSize = 'f5'
-        break
-      }
-    }
-    return {
-      properties: {
-        name: {
-          title: 'Name',
-        },
-        streetAddress: {
-          title: 'Street Address',
-          cellRenderer: ({ cellData }: any) => {
-            return <span className="ws-normal">{cellData}</span>
-          },
-        },
-        cityStateZipAddress: {
-          title: 'City, State Zip',
-          cellRenderer: ({ cellData }: any) => {
-            return <span className={`ws-normal ${fontSize}`}>{cellData}</span>
-          },
-        },
-        email: {
-          title: 'Email',
-          cellRenderer: ({ cellData }: any) => {
-            return <span className={`ws-normal ${fontSize}`}>{cellData}</span>
-          },
-        },
-      },
-    }
-  }
-
-  private simpleInputObject({ values, onChangeObjectCallback }: any) {
-    return (
-      <Input
-        value={values || ''}
-        onChange={(e: any) => onChangeObjectCallback(e.target.value)}
-      />
-    )
-  }
-
-  private simpleInputVerbsAndLabel() {
-    return {
-      renderFilterLabel: (st: any) => {
-        if (!st || !st.object) {
-          // you should treat empty object cases only for alwaysVisibleFilters
-          return 'Any'
-        }
-        return `${
-          st.verb === '=' ? 'is' : st.verb === '!=' ? 'is not' : 'contains'
-        } ${st.object}`
-      },
-      verbs: [
-        {
-          label: 'is',
-          value: '=',
-          object: {
-            renderFn: this.simpleInputObject,
-            extraParams: {},
-          },
-        },
-        {
-          label: 'is not',
-          value: '!=',
-          object: {
-            renderFn: this.simpleInputObject,
-            extraParams: {},
-          },
-        },
-        {
-          label: 'contains',
-          value: 'contains',
-          object: {
-            renderFn: this.simpleInputObject,
-            extraParams: {},
-          },
-        },
-      ],
-    }
-  }
 
   public render() {
-    const {
-      items,
-      filterStatements,
-      tableDensity,
-    }: any = this.state
-    const {
-      runtime: { navigate },
-    } = this.props
+    // const {
+    //   filterStatements,
+    // }: any = this.state
+    // const {
+    //   runtime: { navigate },
+    // } = this.props
 
     return (
       <div>
-        <Table
-          fullWidth
-          updateTableKey={tableDensity}
-          items={items}
-          schema={this.getSchema()}
-          density="low"
+        {/* <FilterBar
           onRowClick={({ rowData }: any) =>
             navigate({
               page: 'admin.app.apub-app-center',
@@ -145,55 +123,103 @@ class UsersTable extends Component<Props> {
             })
           }
           filters={{
-            alwaysVisibleFilters: ['name', 'email'],
-            statements: filterStatements,
-            onChangeStatements: (newStatements: string) =>
-              this.setState({ filterStatements: newStatements }),
-            clearAllFiltersButtonLabel: 'Clear Filters',
-            collapseLeft: true,
-            options: {
-              name: {
-                label: 'Name',
-                ...this.simpleInputVerbsAndLabel(),
+          alwaysVisibleFilters: ['status', 'tienda', 'categoria'],
+          statements: filterStatements,
+          onChangeStatements: (newStatements: string) =>
+            this.setState({ filterStatements: newStatements }),
+          clearAllFiltersButtonLabel: 'Clear Filters',
+          options: {
+            status: {
+              label: 'Status',
+              renderFilterLabel: (st: any) => {
+                if (!st || !st.object) {
+                  // you should treat empty object cases only for alwaysVisibleFilters
+                  return 'All'
+                }
+                const keys = st.object ? Object.keys(st.object) : []
+                const isAllTrue = !keys.some(key => !st.object[key])
+                const isAllFalse = !keys.some(key => st.object[key])
+                const trueKeys = keys.filter(key => st.object[key])
+                let trueKeysLabel = ''
+                trueKeys.forEach((key, index) => {
+                  trueKeysLabel += `${key}${
+                    index === trueKeys.length - 1 ? '' : ', '
+                  }`
+                })
+                return `${
+                  isAllTrue ? 'All' : isAllFalse ? 'None' : `${trueKeysLabel}`
+                }`
               },
-              email: {
-                label: 'Email',
-                ...this.simpleInputVerbsAndLabel(),
-              },
-              streetAddress: {
-                label: 'Street Address',
-                ...this.simpleInputVerbsAndLabel(),
-              },
-              cityStateZipAddress: {
-                label: 'City State Zip',
-                ...this.simpleInputVerbsAndLabel(),
-              },
+              verbs: [
+                {
+                  label: 'includes',
+                  value: 'includes',
+                  object: (props: any) => <StatusSelectorObject {...props} />,
+                },
+              ],
             },
+            tienda: {
+              label: 'tienda',
+              renderFilterLabel: (st: any) => {
+                if (!st || !st.object) {
+                  // you should treat empty object cases only for alwaysVisibleFilters
+                  return 'All'
+                }
+                const keys = st.object ? Object.keys(st.object) : []
+                const isAllTrue = !keys.some(key => !st.object[key])
+                const isAllFalse = !keys.some(key => st.object[key])
+                const trueKeys = keys.filter(key => st.object[key])
+                let trueKeysLabel = ''
+                trueKeys.forEach((key, index) => {
+                  trueKeysLabel += `${key}${
+                    index === trueKeys.length - 1 ? '' : ', '
+                  }`
+                })
+                return `${
+                  isAllTrue ? 'All' : isAllFalse ? 'None' : `${trueKeysLabel}`
+                }`
+              },
+              verbs: [
+                {
+                  label: 'includes',
+                  value: 'includes',
+                  object: (props: any) => <StatusSelectorObject {...props} />,
+                },
+              ],
+            },
+            categoria: {
+              label: 'categoria',
+              renderFilterLabel: (st: any) => {
+                if (!st || !st.object) {
+                  // you should treat empty object cases only for alwaysVisibleFilters
+                  return 'All'
+                }
+                const keys = st.object ? Object.keys(st.object) : []
+                const isAllTrue = !keys.some(key => !st.object[key])
+                const isAllFalse = !keys.some(key => st.object[key])
+                const trueKeys = keys.filter(key => st.object[key])
+                let trueKeysLabel = ''
+                trueKeys.forEach((key, index) => {
+                  trueKeysLabel += `${key}${
+                    index === trueKeys.length - 1 ? '' : ', '
+                  }`
+                })
+                return `${
+                  isAllTrue ? 'All' : isAllFalse ? 'None' : `${trueKeysLabel}`
+                }`
+              },
+              verbs: [
+                {
+                  label: 'includes',
+                  value: 'includes',
+                  object: (props: any) => <StatusSelectorObject {...props} />,
+                },
+              ],
+            }
+            }
           }}
-          bulkActions={{
-            texts: {
-              secondaryActionsLabel: 'Actions',
-              rowsSelected: (qty: any) => (
-                <Fragment>Selected rows: {qty}</Fragment>
-              ),
-              selectAll: 'Select all',
-              allRowsSelected: (qty: any) => (
-                <Fragment>All rows selected: {qty}</Fragment>
-              ),
-            },
-            totalItems: 100,
-            main: {
-              label: 'Send email',
-              handleCallback: (_params: any) => alert('TODO: SHOW EMAIL FORM'),
-            },
-            others: [
-              {
-                label: 'Delete',
-                handleCallback: (params: any) => console.warn(params),
-              },
-            ],
-          }}
-        />
+        /> */}
+        {RenderCards()}
       </div>
     )
   }

@@ -4,7 +4,7 @@ import { Layout, PageBlock, PageHeader } from 'vtex.styleguide'
 
 import UsersTable from './UsersTable'
 
-import './styles.global.css'
+import './styles/styles.global.css'
 
 const Admin: FC = () => {
   return (
