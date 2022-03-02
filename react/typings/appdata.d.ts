@@ -4,5 +4,6 @@ export interface AppData {
   photo: string,
   status: string,
   store: string[],
-  category: string[]
+  category: string[],
+  url: string
 }

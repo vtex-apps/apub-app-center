@@ -6,3 +6,8 @@ body,
 .render-provider {
   height: 100%;
 }
+
+.image-size{
+  width: 3.5rem;
+  height: 3.5rem;
+}
