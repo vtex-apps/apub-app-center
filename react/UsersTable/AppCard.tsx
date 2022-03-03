@@ -52,7 +52,7 @@ const AppCard = (props: AppData) => {
           </div>
 
           <div>
-            <p className='f7 c-muted-2'>Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.</p>
+            <p className='f7 c-muted-2'>{props.description}</p>
           </div>
 
           <div className='flex justify-end items-center'>

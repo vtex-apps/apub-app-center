@@ -21,7 +21,7 @@ function SetCardData () {
   app1.status = "prod";
   app1.store = ['io', 'legacy'];
   app1.category = ['admin', 'checkout'];
-  app1.url = "/apub-app-center";
+  app1.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";  app1.url = "/apub-app-center";
 
   let app2 = {} as AppData;
   app2.id = 2;
@@ -30,6 +30,7 @@ function SetCardData () {
   app2.status = "idea";
   app2.store = ['io', 'legacy'];
   app2.category = ['admin', 'checkout'];
+  app2.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
   app2.url = "/apub-app-center";
 
   let app3 = {} as AppData;
@@ -39,6 +40,7 @@ function SetCardData () {
   app3.status = "prod";
   app3.store = ['io', 'legacy'];
   app3.category = ['admin', 'checkout'];
+  app3.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
   app3.url = "/apub-app-center";
 
   let app4 = {} as AppData;
@@ -48,6 +50,7 @@ function SetCardData () {
   app4.status = "prod";
   app4.store = ['io', 'legacy'];
   app4.category = ['admin', 'checkout'];
+  app4.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
   app4.url = "/apub-app-center";
 
   let app5 = {} as AppData;
@@ -57,6 +60,7 @@ function SetCardData () {
   app5.status = "prod";
   app5.store = ['io'];
   app5.category = ['admin', 'checkout'];
+  app5.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
   app5.url = "/apub-app-center";
 
   let app6 = {} as AppData;
@@ -66,6 +70,7 @@ function SetCardData () {
   app6.status = "prod";
   app6.store = ['io', 'legacy'];
   app6.category = ['admin', 'checkout'];
+  app6.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
   app6.url = "/apub-app-center";
 
   let app7 = {} as AppData;
@@ -75,6 +80,7 @@ function SetCardData () {
   app7.status = "prod";
   app7.store = ['io', 'legacy'];
   app7.category = ['admin', 'checkout'];
+  app7.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
   app7.url = "/apub-app-center";
 
   let app8 = {} as AppData;
@@ -84,6 +90,7 @@ function SetCardData () {
   app8.status = "prod";
   app8.store = ['io', 'legacy'];
   app8.category = ['admin', 'checkout'];
+  app8.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
   app8.url = "/apub-app-center";
 
   let app9 = {} as AppData;
@@ -93,6 +100,7 @@ function SetCardData () {
   app9.status = "prod";
   app9.store = ['io', 'legacy'];
   app9.category = ['admin', 'checkout'];
+  app9.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
   app9.url = "/apub-app-center";
 
   let app10 = {} as AppData;
@@ -102,6 +110,7 @@ function SetCardData () {
   app10.status = "prod";
   app10.store = ['io', 'legacy'];
   app10.category = ['admin', 'checkout'];
+  app10.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
   app10.url = "/apub-app-center";
 
   let app11 = {} as AppData;
@@ -111,6 +120,7 @@ function SetCardData () {
   app11.status = "prod";
   app11.store = ['io', 'legacy'];
   app11.category = ['admin', 'checkout'];
+  app11.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
   app11.url = "/apub-app-center";
 
   let app12 = {} as AppData;
@@ -120,6 +130,7 @@ function SetCardData () {
   app12.status = "prod";
   app12.store = ['io', 'legacy'];
   app12.category = ['admin', 'checkout'];
+  app12.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
   app12.url = "/apub-app-center";
 
   let app13 = {} as AppData;
@@ -129,6 +140,7 @@ function SetCardData () {
   app13.status = "prod";
   app13.store = ['io', 'legacy'];
   app13.category = ['admin', 'checkout'];
+  app13.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
   app13.url = "/apub-app-center";
 
   let app14 = {} as AppData;
@@ -138,6 +150,7 @@ function SetCardData () {
   app14.status = "prod";
   app14.store = ['io', 'legacy'];
   app14.category = ['admin', 'checkout'];
+  app14.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
   app14.url = "/apub-app-center";
 
   let app15 = {} as AppData;
@@ -147,6 +160,7 @@ function SetCardData () {
   app15.status = "prod";
   app15.store = ['io', 'legacy'];
   app15.category = ['admin', 'checkout'];
+  app15.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
   app15.url = "/apub-app-center";
 
 
@@ -181,6 +195,7 @@ function RenderCards () {
             status={card.status}
             store={card.store}
             category={card.category}
+            description={card.description}
             url={card.url}/>)
         })}
     </div>
