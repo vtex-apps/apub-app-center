@@ -18,8 +18,8 @@ function SetCardData () {
   app1.id = 1;
   app1.name = "Massive price update";
   app1.photo = "https://extensions.vtexassets.com/arquivos/ids/157356-800-auto?v=637789878477770000&width=800&height=auto&aspect=true";
-  app1.status = "produccion";
-  app1.store = ['vtex io', 'legacy'];
+  app1.status = "prod";
+  app1.store = ['io', 'legacy'];
   app1.category = ['admin', 'checkout'];
   app1.url = "/apub-app-center";
 
@@ -28,7 +28,7 @@ function SetCardData () {
   app2.name = "Product highlight by vtex-segment";
   app2.photo = "https://extensions.vtexassets.com/arquivos/ids/157356-800-auto?v=637789878477770000&width=800&height=auto&aspect=true";
   app2.status = "idea";
-  app2.store = ['vtex io', 'legacy'];
+  app2.store = ['io', 'legacy'];
   app2.category = ['admin', 'checkout'];
   app2.url = "/apub-app-center";
 
@@ -36,8 +36,8 @@ function SetCardData () {
   app3.id = 3;
   app3.name = "Massive score update";
   app3.photo = "https://extensions.vtexassets.com/arquivos/ids/157356-800-auto?v=637789878477770000&width=800&height=auto&aspect=true";
-  app3.status = "produccion";
-  app3.store = ['vtex io', 'legacy'];
+  app3.status = "prod";
+  app3.store = ['io', 'legacy'];
   app3.category = ['admin', 'checkout'];
   app3.url = "/apub-app-center";
 
@@ -45,8 +45,8 @@ function SetCardData () {
   app4.id = 4;
   app4.name = "Massive stock update";
   app4.photo = "https://extensions.vtexassets.com/arquivos/ids/157356-800-auto?v=637789878477770000&width=800&height=auto&aspect=true";
-  app4.status = "produccion";
-  app4.store = ['vtex io', 'legacy'];
+  app4.status = "prod";
+  app4.store = ['io', 'legacy'];
   app4.category = ['admin', 'checkout'];
   app4.url = "/apub-app-center";
 
@@ -54,8 +54,8 @@ function SetCardData () {
   app5.id = 5;
   app5.name = "Tintometric";
   app5.photo = "https://extensions.vtexassets.com/arquivos/ids/157356-800-auto?v=637789878477770000&width=800&height=auto&aspect=true";
-  app5.status = "produccion";
-  app5.store = ['vtex io', 'legacy'];
+  app5.status = "prod";
+  app5.store = ['io'];
   app5.category = ['admin', 'checkout'];
   app5.url = "/apub-app-center";
 
@@ -63,8 +63,8 @@ function SetCardData () {
   app6.id = 6;
   app6.name = "Pharma orders admin";
   app6.photo = "https://extensions.vtexassets.com/arquivos/ids/157356-800-auto?v=637789878477770000&width=800&height=auto&aspect=true";
-  app6.status = "produccion";
-  app6.store = ['vtex io', 'legacy'];
+  app6.status = "prod";
+  app6.store = ['io', 'legacy'];
   app6.category = ['admin', 'checkout'];
   app6.url = "/apub-app-center";
 
@@ -72,8 +72,8 @@ function SetCardData () {
   app7.id = 7;
   app7.name = "Product availability gallery";
   app7.photo = "https://extensions.vtexassets.com/arquivos/ids/157356-800-auto?v=637789878477770000&width=800&height=auto&aspect=true";
-  app7.status = "produccion";
-  app7.store = ['vtex io', 'legacy'];
+  app7.status = "prod";
+  app7.store = ['io', 'legacy'];
   app7.category = ['admin', 'checkout'];
   app7.url = "/apub-app-center";
 
@@ -81,8 +81,8 @@ function SetCardData () {
   app8.id = 8;
   app8.name = "Qr barcode reader";
   app8.photo = "https://extensions.vtexassets.com/arquivos/ids/157356-800-auto?v=637789878477770000&width=800&height=auto&aspect=true";
-  app8.status = "produccion";
-  app8.store = ['vtex io', 'legacy'];
+  app8.status = "prod";
+  app8.store = ['io', 'legacy'];
   app8.category = ['admin', 'checkout'];
   app8.url = "/apub-app-center";
 
@@ -90,8 +90,8 @@ function SetCardData () {
   app9.id = 9;
   app9.name = "Workspace manager";
   app9.photo = "https://extensions.vtexassets.com/arquivos/ids/157356-800-auto?v=637789878477770000&width=800&height=auto&aspect=true";
-  app9.status = "produccion";
-  app9.store = ['vtex io', 'legacy'];
+  app9.status = "prod";
+  app9.store = ['io', 'legacy'];
   app9.category = ['admin', 'checkout'];
   app9.url = "/apub-app-center";
 
@@ -99,8 +99,8 @@ function SetCardData () {
   app10.id = 10;
   app10.name = "Admin AB Tester";
   app10.photo = "https://extensions.vtexassets.com/arquivos/ids/157356-800-auto?v=637789878477770000&width=800&height=auto&aspect=true";
-  app10.status = "produccion";
-  app10.store = ['vtex io', 'legacy'];
+  app10.status = "prod";
+  app10.store = ['io', 'legacy'];
   app10.category = ['admin', 'checkout'];
   app10.url = "/apub-app-center";
 
@@ -108,8 +108,8 @@ function SetCardData () {
   app11.id = 11;
   app11.name = "Admin Ley de Gondolas Arg";
   app11.photo = "https://extensions.vtexassets.com/arquivos/ids/157356-800-auto?v=637789878477770000&width=800&height=auto&aspect=true";
-  app11.status = "produccion";
-  app11.store = ['vtex io', 'legacy'];
+  app11.status = "prod";
+  app11.store = ['io', 'legacy'];
   app11.category = ['admin', 'checkout'];
   app11.url = "/apub-app-center";
 
@@ -117,8 +117,8 @@ function SetCardData () {
   app12.id = 12;
   app12.name = "Vtex-logger react";
   app12.photo = "https://extensions.vtexassets.com/arquivos/ids/157356-800-auto?v=637789878477770000&width=800&height=auto&aspect=true";
-  app12.status = "produccion";
-  app12.store = ['vtex io', 'legacy'];
+  app12.status = "prod";
+  app12.store = ['io', 'legacy'];
   app12.category = ['admin', 'checkout'];
   app12.url = "/apub-app-center";
 
@@ -126,8 +126,8 @@ function SetCardData () {
   app13.id = 13;
   app13.name = "Speech to Text";
   app13.photo = "https://extensions.vtexassets.com/arquivos/ids/157356-800-auto?v=637789878477770000&width=800&height=auto&aspect=true";
-  app13.status = "produccion";
-  app13.store = ['vtex io', 'legacy'];
+  app13.status = "prod";
+  app13.store = ['io', 'legacy'];
   app13.category = ['admin', 'checkout'];
   app13.url = "/apub-app-center";
 
@@ -135,8 +135,8 @@ function SetCardData () {
   app14.id = 14;
   app14.name = "Quantity on cart";
   app14.photo = "https://extensions.vtexassets.com/arquivos/ids/157356-800-auto?v=637789878477770000&width=800&height=auto&aspect=true";
-  app14.status = "produccion";
-  app14.store = ['vtex io', 'legacy'];
+  app14.status = "prod";
+  app14.store = ['io', 'legacy'];
   app14.category = ['admin', 'checkout'];
   app14.url = "/apub-app-center";
 
@@ -144,8 +144,8 @@ function SetCardData () {
   app15.id = 15;
   app15.name = "Vtex-logger GraphQL";
   app15.photo = "https://extensions.vtexassets.com/arquivos/ids/157356-800-auto?v=637789878477770000&width=800&height=auto&aspect=true";
-  app15.status = "produccion";
-  app15.store = ['vtex io', 'legacy'];
+  app15.status = "prod";
+  app15.store = ['io', 'legacy'];
   app15.category = ['admin', 'checkout'];
   app15.url = "/apub-app-center";
 
@@ -172,15 +172,16 @@ function RenderCards () {
 
   return(
     <div className="flex flex-wrap">
-        {arrCardData.map((el) => {
+        {arrCardData.map((card) => {
           return(<AppCard
-            id={el.id}
-            name={el.name}
-            photo={el.photo}
-            status={el.status}
-            store={el.store}
-            category={el.category}
-            url={el.url}/>)
+            key={card.id}
+            id={card.id}
+            name={card.name}
+            photo={card.photo}
+            status={card.status}
+            store={card.store}
+            category={card.category}
+            url={card.url}/>)
         })}
     </div>
   );
