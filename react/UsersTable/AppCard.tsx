@@ -36,33 +36,53 @@ function RenderStatusTag (appStatus: string) {
   )
 }
 
-function RenderStoreTags(stores: string[]){
+function RenderStoreTags(appStatus: string, stores: string[]){
   return(
     <div className="mb2">
       {stores.map((store, i) => {
-        return(
-          <span key={"span-" + store + i} className="mr3 mb2">
-            <Tag size="small">
-              {store}
-            </Tag>
-          </span>
-        )
+        if (appStatus == "idea"){
+          return(
+            <span key={"span-" + store + i} className="mr3 mb2">
+              <Tag size="small" variation="low">
+                {store}
+              </Tag>
+            </span>
+          )
+        } else {
+          return(
+            <span key={"span-" + store + i} className="mr3 mb2">
+              <Tag size="small">
+                {store}
+              </Tag>
+            </span>
+          )
+        }
       })}
     </div>
   );
 }
 
-function RenderCategoryTags(categories: string []){
+function RenderCategoryTags(appStatus: string, categories: string []){
   return(
     <div className="mb2">
       {categories.map((category, i) =>{
-        return(
-          <span key={"span-" + category + i} className="mr3 mb2">
-            <Tag size="small">
-              {category}
-            </Tag>
-          </span>
-        )
+        if (appStatus == "idea"){
+          return(
+            <span key={"span-" + category + i} className="mr3 mb2">
+              <Tag size="small" variation="low">
+                {category}
+              </Tag>
+            </span>
+          )
+        } else {
+          return(
+            <span key={"span-" + category + i} className="mr3 mb2">
+              <Tag size="small" bgColor="#134CD8">
+                {category}
+              </Tag>
+            </span>
+          )
+        }
       })}
     </div>
   )
@@ -74,8 +94,8 @@ const AppCard = (props: AppData) => {
       <CardDiv>
         <div className='flex flex-wrap items-center mv5'>
           {RenderStatusTag(props.status)}
-          {RenderStoreTags(props.store)}
-          {RenderCategoryTags(props.category)}
+          {RenderStoreTags(props.status, props.store)}
+          {RenderCategoryTags(props.status, props.category)}
         </div>
         <div className='flex flex-column'>
           <div className='flex'>
