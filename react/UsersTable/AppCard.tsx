@@ -1,5 +1,6 @@
 import React from 'react'
-import { Card, Button, Tag } from 'vtex.styleguide'
+import { Button, Tag } from 'vtex.styleguide'
+import CardDiv from './CardDiv';
 import { AppData } from '../typings/appdata'
 
 function GetStatusTagByColor(appStatus: string){
@@ -52,7 +53,7 @@ function RenderStoreTags(stores: string[]){
 const AppCard = (props: AppData) => {
   return (
     <div className='w-100 w-third-ns pa3' key={"card-" + props.id}>
-      <Card>
+      <CardDiv>
         <div className='flex flex-wrap items-center mv5'>
           {RenderStatusTag(props.status)}
           {RenderStoreTags(props.store)}
@@ -88,7 +89,7 @@ const AppCard = (props: AppData) => {
             </Button>
           </div>
         </div>
-      </Card>
+      </CardDiv>
     </div>
   )
 }
