@@ -28,26 +28,44 @@ function GetStatusTagByColor(appStatus: string){
 
 function RenderStatusTag (appStatus: string) {
   return(
-    <span className="mr3">
-      {GetStatusTagByColor(appStatus)}
-    </span>
+    <div className="mb2">
+      <span className="mr3">
+        {GetStatusTagByColor(appStatus)}
+      </span>
+    </div>
   )
 }
 
 function RenderStoreTags(stores: string[]){
   return(
-    <div>
+    <div className="mb2">
       {stores.map((store, i) => {
-          return(
-            <span key={"span-" + store + i} className="mr3">
-              <Tag size="small">
-                {store}
-              </Tag>
-            </span>
-          )
-        })}
+        return(
+          <span key={"span-" + store + i} className="mr3 mb2">
+            <Tag size="small">
+              {store}
+            </Tag>
+          </span>
+        )
+      })}
     </div>
   );
+}
+
+function RenderCategoryTags(categories: string []){
+  return(
+    <div className="mb2">
+      {categories.map((category, i) =>{
+        return(
+          <span key={"span-" + category + i} className="mr3 mb2">
+            <Tag size="small">
+              {category}
+            </Tag>
+          </span>
+        )
+      })}
+    </div>
+  )
 }
 
 const AppCard = (props: AppData) => {
@@ -57,11 +75,7 @@ const AppCard = (props: AppData) => {
         <div className='flex flex-wrap items-center mv5'>
           {RenderStatusTag(props.status)}
           {RenderStoreTags(props.store)}
-          {/* <span className="mr3">
-            <Tag size="small">
-              {props.category[0]}
-            </Tag>
-          </span> */}
+          {RenderCategoryTags(props.category)}
         </div>
         <div className='flex flex-column'>
           <div className='flex'>
@@ -72,7 +86,7 @@ const AppCard = (props: AppData) => {
                 alt="AppIcon"
               />
             </div>
-            <div style={{ width: 'calc(100% - 75px)' }}>
+            <div className="card-div-name mr4">
               <h3 className='f5 fw5 near-black mv3'>
                 {props.name}
               </h3>

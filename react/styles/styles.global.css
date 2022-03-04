@@ -15,3 +15,11 @@ body,
   width: 3.5rem;
   height: 3.5rem;
 }
+
+.card-div-name {
+  width: calc(100% - 75px);
+}
+
+.vtex-tag {
+  padding: .15rem .5rem;
+}

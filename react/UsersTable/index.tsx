@@ -20,7 +20,7 @@ function SetCardData () {
   app1.photo = "https://extensions.vtexassets.com/arquivos/ids/157356-800-auto?v=637789878477770000&width=800&height=auto&aspect=true";
   app1.status = "prod";
   app1.store = ['legacy', 'io'];
-  app1.category = ['admin', 'checkout'];
+  app1.category = ['prices'];
   app1.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";  app1.url = "/apub-app-center";
 
   let app2 = {} as AppData;
@@ -29,7 +29,7 @@ function SetCardData () {
   app2.photo = "https://extensions.vtexassets.com/arquivos/ids/157356-800-auto?v=637789878477770000&width=800&height=auto&aspect=true";
   app2.status = "idea";
   app2.store = ['legacy', 'io'];
-  app2.category = ['admin', 'checkout'];
+  app2.category = ['pdp'];
   app2.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
   app2.url = "/apub-app-center";
 
@@ -39,7 +39,7 @@ function SetCardData () {
   app3.photo = "https://extensions.vtexassets.com/arquivos/ids/157356-800-auto?v=637789878477770000&width=800&height=auto&aspect=true";
   app3.status = "beta";
   app3.store = ['legacy', 'io'];
-  app3.category = ['admin', 'checkout'];
+  app3.category = ['catalog'];
   app3.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
   app3.url = "/apub-app-center";
 
