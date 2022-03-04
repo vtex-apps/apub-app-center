@@ -98,27 +98,29 @@ const AppCard = (props: AppData) => {
           {RenderCategoryTags(props.status, props.category)}
         </div>
         <div className='flex flex-column'>
-          <div className='flex'>
-            <div className="image-size mr4">
-              <img
-                className='mw-100 mh-100'
-                src={props.photo}
-                alt="AppIcon"
-              />
+          <a className="link" href={props.url}>
+            <div className='flex'>
+                <div className="image-size mr4">
+                  <img
+                    className='mw-100 mh-100'
+                    src={props.photo}
+                    alt="AppIcon"
+                  />
+                </div>
+                <div className="card-div-name mr4">
+                  <h3 className='f5 fw5 near-black mv3'>
+                    {props.name}
+                  </h3>
+                </div>
             </div>
-            <div className="card-div-name mr4">
-              <h3 className='f5 fw5 near-black mv3'>
-                {props.name}
-              </h3>
-            </div>
-          </div>
+          </a>
           <div>
             <p className='f7 c-muted-2'>
               {props.description}
             </p>
           </div>
           <div className='flex justify-end items-center'>
-            <Button variation="secondary" size="small">
+            <Button variation="secondary" size="small" href={props.url}>
               Ver más
             </Button>
           </div>

@@ -1,15 +1,7 @@
 import React, { Component } from 'react'
-// import {
-//   FilterBar,
-//   Checkbox
-// } from 'vtex.styleguide'
-import { withRuntimeContext } from 'vtex.render-runtime'
 import { AppData } from '../typings/appdata'
 import AppCard from './AppCard'
 
-interface Props {
-  runtime: any
-}
 
 const arrCardData: AppData[] = [];
 
@@ -21,7 +13,8 @@ function SetCardData () {
   app1.status = "prod";
   app1.store = ['legacy', 'io'];
   app1.category = ['prices'];
-  app1.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";  app1.url = "/apub-app-center";
+  app1.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";  app1.url = "/admin/app/apub-app-center/:id";
+  app1.url = "/admin/app/apub-app-center/:id";
 
   let app2 = {} as AppData;
   app2.id = 2;
@@ -31,7 +24,7 @@ function SetCardData () {
   app2.store = ['legacy', 'io'];
   app2.category = ['pdp'];
   app2.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
-  app2.url = "/apub-app-center";
+  app2.url = "/admin/app/apub-app-center/:id";
 
   let app3 = {} as AppData;
   app3.id = 3;
@@ -41,7 +34,7 @@ function SetCardData () {
   app3.store = ['legacy', 'io'];
   app3.category = ['catalog'];
   app3.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
-  app3.url = "/apub-app-center";
+  app3.url = "/admin/app/apub-app-center/:id";
 
   // let app4 = {} as AppData;
   // app4.id = 4;
@@ -51,7 +44,7 @@ function SetCardData () {
   // app4.store = ['legacy', 'io'];
   // app4.category = ['admin', 'checkout'];
   // app4.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
-  // app4.url = "/apub-app-center";
+  // app4.url = "/admin/app/apub-app-center/:id";
 
   // let app5 = {} as AppData;
   // app5.id = 5;
@@ -61,7 +54,7 @@ function SetCardData () {
   // app5.store = ['io'];
   // app5.category = ['admin', 'checkout'];
   // app5.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
-  // app5.url = "/apub-app-center";
+  // app5.url = "/admin/app/apub-app-center/:id";
 
   // let app6 = {} as AppData;
   // app6.id = 6;
@@ -71,7 +64,7 @@ function SetCardData () {
   // app6.store = ['legacy', 'io'];
   // app6.category = ['admin', 'checkout'];
   // app6.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
-  // app6.url = "/apub-app-center";
+  // app6.url = "/admin/app/apub-app-center/:id";
 
   // let app7 = {} as AppData;
   // app7.id = 7;
@@ -81,17 +74,17 @@ function SetCardData () {
   // app7.store = ['legacy', 'io'];
   // app7.category = ['admin', 'checkout'];
   // app7.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
-  // app7.url = "/apub-app-center";
+  // app7.url = "/admin/app/apub-app-center/:id";
 
   // let app8 = {} as AppData;
   // app8.id = 8;
   // app8.name = "Qr barcode reader";
   // app8.photo = "https://extensions.vtexassets.com/arquivos/ids/157356-800-auto?v=637789878477770000&width=800&height=auto&aspect=true";
   // app8.status = "prod";
-  // app8.store = ['legacy', 'io'];
+  // app8.store = ['pdp'];
   // app8.category = ['admin', 'checkout'];
   // app8.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
-  // app8.url = "/apub-app-center";
+  // app8.url = "/admin/app/apub-app-center/:id";
 
   // let app9 = {} as AppData;
   // app9.id = 9;
@@ -101,7 +94,7 @@ function SetCardData () {
   // app9.store = ['legacy', 'io'];
   // app9.category = ['admin', 'checkout'];
   // app9.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
-  // app9.url = "/apub-app-center";
+  // app9.url = "/admin/app/apub-app-center/:id";
 
   // let app10 = {} as AppData;
   // app10.id = 10;
@@ -109,9 +102,9 @@ function SetCardData () {
   // app10.photo = "https://extensions.vtexassets.com/arquivos/ids/157356-800-auto?v=637789878477770000&width=800&height=auto&aspect=true";
   // app10.status = "prod";
   // app10.store = ['legacy', 'io'];
-  // app10.category = ['admin', 'checkout'];
+  // app10.category = ['admin'];
   // app10.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
-  // app10.url = "/apub-app-center";
+  // app10.url = "/admin/app/apub-app-center/:id";
 
   // let app11 = {} as AppData;
   // app11.id = 11;
@@ -121,7 +114,7 @@ function SetCardData () {
   // app11.store = ['legacy', 'io'];
   // app11.category = ['admin', 'checkout'];
   // app11.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
-  // app11.url = "/apub-app-center";
+  // app11.url = "/admin/app/apub-app-center/:id";
 
   // let app12 = {} as AppData;
   // app12.id = 12;
@@ -131,7 +124,7 @@ function SetCardData () {
   // app12.store = ['legacy', 'io'];
   // app12.category = ['admin', 'checkout'];
   // app12.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
-  // app12.url = "/apub-app-center";
+  // app12.url = "/admin/app/apub-app-center/:id";
 
   // let app13 = {} as AppData;
   // app13.id = 13;
@@ -141,7 +134,7 @@ function SetCardData () {
   // app13.store = ['legacy', 'io'];
   // app13.category = ['admin', 'checkout'];
   // app13.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
-  // app13.url = "/apub-app-center";
+  // app13.url = "/admin/app/apub-app-center/:id";
 
   // let app14 = {} as AppData;
   // app14.id = 14;
@@ -151,7 +144,7 @@ function SetCardData () {
   // app14.store = ['legacy', 'io'];
   // app14.category = ['admin', 'checkout'];
   // app14.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
-  // app14.url = "/apub-app-center";
+  // app14.url = "/admin/app/apub-app-center/:id";
 
   // let app15 = {} as AppData;
   // app15.id = 15;
@@ -161,7 +154,7 @@ function SetCardData () {
   // app15.store = ['legacy', 'io'];
   // app15.category = ['admin', 'checkout'];
   // app15.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
-  // app15.url = "/apub-app-center";
+  // app15.url = "/admin/app/apub-app-center/:id";
 
 
   arrCardData.push(app1);
@@ -201,171 +194,14 @@ function RenderCards () {
   );
 }
 
-// function StatusSelectorObject({ value, onChange }: any) {
-//   const initialValue = {
-//     beta: false,
-//     producción: false,
-//     idea: false,
-//     ...(value || {}),
-//   }
-//   const toggleValueByKey = (key: any) => {
-//     const newValues = {
-//       ...(value || initialValue),
-//       [key]: value ? !value[key] : false,
-//     }
-//     return newValues
-//   }
-//   return (
-//     <div>
-//       {Object.keys(initialValue).map((opt, index) => {
-//         return (
-//           <div className="mb3" key={`class-statment-object-${opt}-${index}`}>
-//             <Checkbox
-//               checked={value ? value[opt] : initialValue[opt]}
-//               id={`class-${opt}`}
-//               label={opt}
-//               name="class-checkbox-group"
-//               onChange={() => {
-//                 const newValue = toggleValueByKey(`${opt}`)
-//                 onChange(newValue)
-//               }}
-//               value={opt}
-//             />
-//           </div>
-//         )
-//       })}
-//     </div>
-//   )
-// }
-
-class UsersTable extends Component<Props> {
-  constructor(props: any) {
-    super(props)
-    this.state = {
-      searchValue: null,
-      filterStatements: [],
-    }
-  }
-
-
+class UsersTable extends Component {
   public render() {
-    // const {
-    //   filterStatements,
-    // }: any = this.state
-    // const {
-    //   runtime: { navigate },
-    // } = this.props
-
     return (
       <div>
-        {/* <FilterBar
-          onRowClick={({ rowData }: any) =>
-            navigate({
-              page: 'admin.app.apub-app-center',
-              params: { id: rowData.id },
-            })
-          }
-          filters={{
-          alwaysVisibleFilters: ['status', 'tienda', 'categoria'],
-          statements: filterStatements,
-          onChangeStatements: (newStatements: string) =>
-            this.setState({ filterStatements: newStatements }),
-          clearAllFiltersButtonLabel: 'Clear Filters',
-          options: {
-            status: {
-              label: 'Status',
-              renderFilterLabel: (st: any) => {
-                if (!st || !st.object) {
-                  // you should treat empty object cases only for alwaysVisibleFilters
-                  return 'All'
-                }
-                const keys = st.object ? Object.keys(st.object) : []
-                const isAllTrue = !keys.some(key => !st.object[key])
-                const isAllFalse = !keys.some(key => st.object[key])
-                const trueKeys = keys.filter(key => st.object[key])
-                let trueKeysLabel = ''
-                trueKeys.forEach((key, index) => {
-                  trueKeysLabel += `${key}${
-                    index === trueKeys.length - 1 ? '' : ', '
-                  }`
-                })
-                return `${
-                  isAllTrue ? 'All' : isAllFalse ? 'None' : `${trueKeysLabel}`
-                }`
-              },
-              verbs: [
-                {
-                  label: 'includes',
-                  value: 'includes',
-                  object: (props: any) => <StatusSelectorObject {...props} />,
-                },
-              ],
-            },
-            tienda: {
-              label: 'tienda',
-              renderFilterLabel: (st: any) => {
-                if (!st || !st.object) {
-                  // you should treat empty object cases only for alwaysVisibleFilters
-                  return 'All'
-                }
-                const keys = st.object ? Object.keys(st.object) : []
-                const isAllTrue = !keys.some(key => !st.object[key])
-                const isAllFalse = !keys.some(key => st.object[key])
-                const trueKeys = keys.filter(key => st.object[key])
-                let trueKeysLabel = ''
-                trueKeys.forEach((key, index) => {
-                  trueKeysLabel += `${key}${
-                    index === trueKeys.length - 1 ? '' : ', '
-                  }`
-                })
-                return `${
-                  isAllTrue ? 'All' : isAllFalse ? 'None' : `${trueKeysLabel}`
-                }`
-              },
-              verbs: [
-                {
-                  label: 'includes',
-                  value: 'includes',
-                  object: (props: any) => <StatusSelectorObject {...props} />,
-                },
-              ],
-            },
-            categoria: {
-              label: 'categoria',
-              renderFilterLabel: (st: any) => {
-                if (!st || !st.object) {
-                  // you should treat empty object cases only for alwaysVisibleFilters
-                  return 'All'
-                }
-                const keys = st.object ? Object.keys(st.object) : []
-                const isAllTrue = !keys.some(key => !st.object[key])
-                const isAllFalse = !keys.some(key => st.object[key])
-                const trueKeys = keys.filter(key => st.object[key])
-                let trueKeysLabel = ''
-                trueKeys.forEach((key, index) => {
-                  trueKeysLabel += `${key}${
-                    index === trueKeys.length - 1 ? '' : ', '
-                  }`
-                })
-                return `${
-                  isAllTrue ? 'All' : isAllFalse ? 'None' : `${trueKeysLabel}`
-                }`
-              },
-              verbs: [
-                {
-                  label: 'includes',
-                  value: 'includes',
-                  object: (props: any) => <StatusSelectorObject {...props} />,
-                },
-              ],
-            }
-            }
-          }}
-        /> */}
         {RenderCards()}
       </div>
     )
   }
 }
 
-export default withRuntimeContext(UsersTable)
+export default (UsersTable)
