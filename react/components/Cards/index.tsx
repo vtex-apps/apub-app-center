@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react'
-import { AppData } from '../typings/appdata'
+import { AppData } from '../../typings/appdata'
 import AppCard from './AppCard'
 
-function SetCardData (setArrCardData: any) {
-  const auxArrCardData = []
+function SetCardData (setCardsList: any) {
+  const auxCardList = []
   let app1 = {} as AppData;
   app1.id = 1;
   app1.name = "Massive price update";
@@ -155,9 +155,9 @@ function SetCardData (setArrCardData: any) {
   // app15.url = "/admin/app/apub-app-center/:id";
 
 
-  auxArrCardData.push(app1);
-  auxArrCardData.push(app2);
-  auxArrCardData.push(app3);
+  auxCardList.push(app1);
+  auxCardList.push(app2);
+  auxCardList.push(app3);
   // arrCardData.push(app4);
   // arrCardData.push(app5);
   // arrCardData.push(app6);
@@ -170,21 +170,20 @@ function SetCardData (setArrCardData: any) {
   // arrCardData.push(app13);
   // arrCardData.push(app14);
   // arrCardData.push(app15);
-  setArrCardData(auxArrCardData)
+  setCardsList(auxCardList)
 }
 
-export default function UsersTable() {
-  const [arrCardData, setArrCardData]= useState<AppData[]>([])
+export default function Cards() {
+  const [cardsList, setCardsList]= useState<AppData[]>([])
   useEffect(() => {
-    if (arrCardData.length === 0) {
-      SetCardData(setArrCardData);
+    if (cardsList.length === 0) {
+      SetCardData(setCardsList);
     }
   }, [])
-  console.log('arrCardData', arrCardData)
   return (
     <>
-      { arrCardData && <div className="flex flex-wrap">
-      {arrCardData.map((card) => {
+      { cardsList && <div className="flex flex-wrap">
+      {cardsList.map((card) => {
         return(<AppCard
           key={card.id}
           id={card.id}

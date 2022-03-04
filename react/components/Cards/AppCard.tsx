@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Tag } from 'vtex.styleguide'
 import CardDiv from './CardDiv';
-import { AppData } from '../typings/appdata'
+import { AppData } from '../../typings/appdata'
 
 function GetStatusTagByColor(appStatus: string){
   switch(appStatus) {
