@@ -1,11 +1,9 @@
-import React, { Component } from 'react'
+import React, {useState, useEffect} from 'react'
 import { AppData } from '../typings/appdata'
 import AppCard from './AppCard'
 
-
-const arrCardData: AppData[] = [];
-
-function SetCardData () {
+function SetCardData (setArrCardData: any) {
+  const auxArrCardData = []
   let app1 = {} as AppData;
   app1.id = 1;
   app1.name = "Massive price update";
@@ -157,9 +155,9 @@ function SetCardData () {
   // app15.url = "/admin/app/apub-app-center/:id";
 
 
-  arrCardData.push(app1);
-  arrCardData.push(app2);
-  arrCardData.push(app3);
+  auxArrCardData.push(app1);
+  auxArrCardData.push(app2);
+  auxArrCardData.push(app3);
   // arrCardData.push(app4);
   // arrCardData.push(app5);
   // arrCardData.push(app6);
@@ -172,36 +170,34 @@ function SetCardData () {
   // arrCardData.push(app13);
   // arrCardData.push(app14);
   // arrCardData.push(app15);
+  setArrCardData(auxArrCardData)
 }
 
-function RenderCards () {
-  SetCardData();
-  return(
-    <div className="flex flex-wrap">
-        {arrCardData.map((card) => {
-          return(<AppCard
-            key={card.id}
-            id={card.id}
-            name={card.name}
-            photo={card.photo}
-            status={card.status}
-            store={card.store}
-            category={card.category}
-            description={card.description}
-            url={card.url}/>)
-        })}
-    </div>
-  );
-}
+export default function UsersTable() {
+  const [arrCardData, setArrCardData]= useState<AppData[]>([])
+  useEffect(() => {
+    if (arrCardData.length === 0) {
+      SetCardData(setArrCardData);
+    }
+  }, [])
+  console.log('arrCardData', arrCardData)
+  return (
+    <>
+      { arrCardData && <div className="flex flex-wrap">
+      {arrCardData.map((card) => {
+        return(<AppCard
+          key={card.id}
+          id={card.id}
+          name={card.name}
+          photo={card.photo}
+          status={card.status}
+          store={card.store}
+          category={card.category}
+          description={card.description}
+          url={card.url}/>)
+      })}
+    </div>}
+    </>
 
-class UsersTable extends Component {
-  public render() {
-    return (
-      <div>
-        {RenderCards()}
-      </div>
-    )
-  }
+  )
 }
-
-export default (UsersTable)
