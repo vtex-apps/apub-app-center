@@ -1,39 +1,66 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Card, Button, Tag } from 'vtex.styleguide'
 import { AppData } from '../typings/appdata'
 
+function GetStatusTagByColor(appStatus: string){
+  switch(appStatus) {
+    case 'prod':
+      return (
+        <Tag size="small" type="success">
+          {appStatus}
+        </Tag>
+    );
+    case 'beta':
+      return (
+        <Tag size="small" type="warning">
+          {appStatus}
+        </Tag>
+    );
+    default:
+      return (
+        <Tag size="small" variation="low">
+          {appStatus}
+        </Tag>
+    );
+  }
+}
+
+function RenderStatusTag (appStatus: string) {
+  return(
+    <span className="mr3">
+      {GetStatusTagByColor(appStatus)}
+    </span>
+  )
+}
+
 function RenderStoreTags(stores: string[]){
   return(
-    <Fragment>
-      {stores.map((store) => {
+    <div>
+      {stores.map((store, i) => {
           return(
-            <span className="mr2">
+            <span key={"span-" + store + i} className="mr3">
               <Tag size="small">
                 {store}
               </Tag>
             </span>
           )
         })}
-    </Fragment>
+    </div>
   );
 }
 
 const AppCard = (props: AppData) => {
   return (
-    <div className='w-100 w-third-ns pa3'>
+    <div className='w-100 w-third-ns pa3' key={"card-" + props.id}>
       <Card>
         <div className='flex flex-wrap items-center mv5'>
-          <span className="mr2">
-            <Tag size="small">
-              {props.status}
-            </Tag>
-          </span>
+          {RenderStatusTag(props.status)}
           {RenderStoreTags(props.store)}
-          <span className="mr2">
+          {/* <span className="mr3">
             <Tag size="small">
               {props.category[0]}
             </Tag>
-          </span>
+          </span> */}
         </div>
         <div className='flex flex-column'>
           <div className='flex'>
@@ -50,11 +77,11 @@ const AppCard = (props: AppData) => {
               </h3>
             </div>
           </div>
-
           <div>
-            <p className='f7 c-muted-2'>{props.description}</p>
+            <p className='f7 c-muted-2'>
+              {props.description}
+            </p>
           </div>
-
           <div className='flex justify-end items-center'>
             <Button variation="secondary" size="small">
               Ver más
