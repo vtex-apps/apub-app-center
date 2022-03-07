@@ -29,7 +29,7 @@ function GetStatusTagByColor(appStatus: string){
 function RenderStatusTag (appStatus: string) {
   return(
     <div className="mb2">
-      <span className="mr3">
+      <span className="mr2">
         {GetStatusTagByColor(appStatus)}
       </span>
     </div>
@@ -42,7 +42,7 @@ function RenderStoreTags(appStatus: string, stores: string[]){
       {stores.map((store, i) => {
         if (appStatus == "idea"){
           return(
-            <span key={"span-" + store + i} className="mr3 mb2">
+            <span key={"span-" + store + i} className="mr2 mb2">
               <Tag size="small" variation="low">
                 {store}
               </Tag>
@@ -50,7 +50,7 @@ function RenderStoreTags(appStatus: string, stores: string[]){
           )
         } else {
           return(
-            <span key={"span-" + store + i} className="mr3 mb2">
+            <span key={"span-" + store + i} className="mr2 mb2">
               <Tag size="small">
                 {store}
               </Tag>
@@ -68,7 +68,7 @@ function RenderCategoryTags(appStatus: string, categories: string []){
       {categories.map((category, i) =>{
         if (appStatus == "idea"){
           return(
-            <span key={"span-" + category + i} className="mr3 mb2">
+            <span key={"span-" + category + i} className="mr2 mb2">
               <Tag size="small" variation="low">
                 {category}
               </Tag>
@@ -76,7 +76,7 @@ function RenderCategoryTags(appStatus: string, categories: string []){
           )
         } else {
           return(
-            <span key={"span-" + category + i} className="mr3 mb2">
+            <span key={"span-" + category + i} className="mr2 mb2">
               <Tag size="small" bgColor="#134CD8">
                 {category}
               </Tag>
