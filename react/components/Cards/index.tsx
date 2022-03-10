@@ -177,13 +177,13 @@ function SetCardData (setCardsList: any) {
   auxCardList.push(app13);
   auxCardList.push(app14);
   auxCardList.push(app15);
+
   setCardsList(auxCardList)
 }
 
-function FilterCardData (setStatementsList: any) {
-  const categorias = Object.keys(setStatementsList[0].object);
-  console.log(categorias);
-}
+// function FilterCardData (setStatementsList: any) {
+//   console.log(setStatementsList);
+// }
 
 export default function Cards() {
   const [cardsList, setCardsList]= useState<AppData[]>([])
@@ -313,14 +313,28 @@ export default function Cards() {
     )
   }
 
+  const [statementsList, setStatementsList] = useState();
+  useEffect(() => {
+    if (statementsList) {
+      console.log (statementsList);
+    } if (cardsList.length > 0){
+      setFilterCardsList(cardsList);
+    }
+  }, [statementsList, cardsList])
+
+  const [filterCardsList, setFilterCardsList] = useState<AppData[]>();
+
+
+
   return (
     <>
       <Header text="Filtros"/>
-      <div className="w-100 pa3">
+      <div className="ma3 pa3 mb2 ba br2 b--muted-4">
+
         <FilterBar
           alwaysVisibleFilters={['categoria', 'tienda', 'status']}
-          statements={[]}
-          onChangeStatements={(statements: []) => FilterCardData(statements)}
+          statements={statementsList}
+          onChangeStatements={(statement: any) => setStatementsList(statement)}
           clearAllFiltersButtonLabel="Limpiar filtros"
           options={{
             categoria: {
@@ -412,10 +426,12 @@ export default function Cards() {
 
           }}
         />
+
       </div>
       <Header text="Todas las Apps"/>
-      { cardsList && <div className="flex flex-wrap">
-      {cardsList.map((card) => {
+      {filterCardsList && <div className="flex flex-wrap">
+        {}
+      {filterCardsList.map((card) => {
         return(<AppCard
           key={card.id}
           id={card.id}
