@@ -1,9 +1,16 @@
 import React, {useState, useEffect} from 'react'
 import { AppData } from '../../typings/appdata'
+//import MyUsersFilter from '../Filters'
 import AppCard from './AppCard'
+import Header from './Header'
+import {
+  FilterBar,
+  Checkbox
+} from 'vtex.styleguide'
+
+const auxCardList: any[] = [];
 
 function SetCardData (setCardsList: any) {
-  const auxCardList = []
   let app1 = {} as AppData;
   app1.id = 1;
   app1.name = "Massive price update";
@@ -173,6 +180,11 @@ function SetCardData (setCardsList: any) {
   setCardsList(auxCardList)
 }
 
+function FilterCardData (setStatementsList: any) {
+  const categorias = Object.keys(setStatementsList[0].object);
+  console.log(categorias);
+}
+
 export default function Cards() {
   const [cardsList, setCardsList]= useState<AppData[]>([])
   useEffect(() => {
@@ -180,8 +192,228 @@ export default function Cards() {
       SetCardData(setCardsList);
     }
   }, [])
+
+  // const [statementsList, setStatementsList]= useState<any[]>([])
+  // useEffect(() => {
+  //   if (statementsList.length !== 0) {
+  //     FilterCardData(setStatementsList);
+  //   }
+  // }, [])
+
+  function CategorySelectorObject({ value, onChange }: any) {
+    const initialValue = {
+      pdp: true,
+      admin: true,
+      search: true,
+      gallery: true,
+      solution: true,
+      checkout: true,
+      ...(value || {}),
+    }
+    const toggleValueByKey = (key: any) => {
+      const newValues = {
+        ...(value || initialValue),
+        [key]: value ? !value[key] : false,
+      }
+      return newValues
+    }
+    return (
+      <div>
+        {Object.keys(initialValue).map((opt, index) => {
+          return (
+            <div className="mb3" key={`class-statment-object-${opt}-${index}`}>
+              <Checkbox
+                checked={value ? value[opt] : initialValue[opt]}
+                id={`class-${opt}`}
+                label={opt}
+                name="class-checkbox-group"
+                onChange={() => {
+                  const newValue = toggleValueByKey(`${opt}`)
+                  onChange(newValue)
+                }}
+                value={opt}
+              />
+            </div>
+          )
+        })}
+      </div>
+    )
+  }
+
+  function StoreSelectorObject({ value, onChange }: any) {
+    const initialValue = {
+      legacy: true,
+      io: true,
+      ...(value || {}),
+    }
+    const toggleValueByKey = (key: any) => {
+      const newValues = {
+        ...(value || initialValue),
+        [key]: value ? !value[key] : false,
+      }
+      return newValues
+    }
+    return (
+      <div>
+        {Object.keys(initialValue).map((opt, index) => {
+          return (
+            <div className="mb3" key={`class-statment-object-${opt}-${index}`}>
+              <Checkbox
+                checked={value ? value[opt] : initialValue[opt]}
+                id={`class-${opt}`}
+                label={opt}
+                name="class-checkbox-group"
+                onChange={() => {
+                  const newValue = toggleValueByKey(`${opt}`)
+                  onChange(newValue)
+                }}
+                value={opt}
+              />
+            </div>
+          )
+        })}
+      </div>
+    )
+  }
+
+  function StatusSelectorObject({ value, onChange }: any) {
+    const initialValue = {
+      prod: true,
+      beta: true,
+      idea: true,
+      ...(value || {}),
+    }
+    const toggleValueByKey = (key: any) => {
+      const newValues = {
+        ...(value || initialValue),
+        [key]: value ? !value[key] : false,
+      }
+      return newValues
+    }
+    return (
+      <div>
+        {Object.keys(initialValue).map((opt, index) => {
+          return (
+            <div className="mb3" key={`class-statment-object-${opt}-${index}`}>
+              <Checkbox
+                checked={value ? value[opt] : initialValue[opt]}
+                id={`class-${opt}`}
+                label={opt}
+                name="class-checkbox-group"
+                onChange={() => {
+                  const newValue = toggleValueByKey(`${opt}`)
+                  onChange(newValue)
+                }}
+                value={opt}
+              />
+            </div>
+          )
+        })}
+      </div>
+    )
+  }
+
   return (
     <>
+      <Header text="Filtros"/>
+      <div className="w-100 pa3">
+        <FilterBar
+          alwaysVisibleFilters={['categoria', 'tienda', 'status']}
+          statements={[]}
+          onChangeStatements={(statements: []) => FilterCardData(statements)}
+          clearAllFiltersButtonLabel="Limpiar filtros"
+          options={{
+            categoria: {
+              label: 'Categoria',
+              renderFilterLabel: (st: any) => {
+                if (!st || !st.object) {
+                  // you should treat empty object cases only for alwaysVisibleFilters
+                  return 'Todas'
+                }
+                const keys = st.object ? Object.keys(st.object) : []
+                const isAllTrue = !keys.some(key => !st.object[key])
+                const isAllFalse = !keys.some(key => st.object[key])
+                const trueKeys = keys.filter(key => st.object[key])
+                let trueKeysLabel = ''
+                trueKeys.forEach((key, index) => {
+                  trueKeysLabel += `${key}${
+                    index === trueKeys.length - 1 ? '' : ', '
+                  }`
+                })
+                return `${
+                  isAllTrue ? 'Todas' : isAllFalse ? 'Ninguna' : `${trueKeysLabel}`
+                }`
+              },
+              verbs: [
+                {
+                  value: 'includes',
+                  object: (props: any) => <CategorySelectorObject {...props} />,
+                },
+              ],
+            },
+
+            tienda: {
+              label: 'Tienda',
+              renderFilterLabel: (st: any) => {
+                if (!st || !st.object) {
+                  // you should treat empty object cases only for alwaysVisibleFilters
+                  return 'Todas'
+                }
+                const keys = st.object ? Object.keys(st.object) : []
+                const isAllTrue = !keys.some(key => !st.object[key])
+                const isAllFalse = !keys.some(key => st.object[key])
+                const trueKeys = keys.filter(key => st.object[key])
+                let trueKeysLabel = ''
+                trueKeys.forEach((key, index) => {
+                  trueKeysLabel += `${key}${
+                    index === trueKeys.length - 1 ? '' : ', '
+                  }`
+                })
+                return `${
+                  isAllTrue ? 'Todas' : isAllFalse ? 'Ninguna' : `${trueKeysLabel}`
+                }`
+              },
+              verbs: [
+                {
+                  value: 'includes',
+                  object: (props: any) => <StoreSelectorObject {...props} />,
+                },
+              ],
+            },
+
+            status: {
+              label: 'Status',
+              renderFilterLabel: (st: any) => {
+                if (!st || !st.object) {
+                  // you should treat empty object cases only for alwaysVisibleFilters
+                  return 'Todas'
+                }
+                const keys = st.object ? Object.keys(st.object) : []
+                const isAllTrue = !keys.some(key => !st.object[key])
+                const isAllFalse = !keys.some(key => st.object[key])
+                const trueKeys = keys.filter(key => st.object[key])
+                let trueKeysLabel = ''
+                trueKeys.forEach((key, index) => {
+                  trueKeysLabel += `${key}${
+                    index === trueKeys.length - 1 ? '' : ', '
+                  }`
+                })
+                return `${
+                  isAllTrue ? 'Todas' : isAllFalse ? 'Ninguna' : `${trueKeysLabel}`
+                }`
+              },
+              verbs: [
+                {
+                  value: 'includes',
+                  object: (props: any) => <StatusSelectorObject {...props} />,
+                },
+              ],
+            },
+
+          }}
+        />
+      </div>
+      <Header text="Todas las Apps"/>
       { cardsList && <div className="flex flex-wrap">
       {cardsList.map((card) => {
         return(<AppCard
@@ -197,6 +429,5 @@ export default function Cards() {
       })}
     </div>}
     </>
-
   )
 }

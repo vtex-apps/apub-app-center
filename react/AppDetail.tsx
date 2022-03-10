@@ -8,7 +8,9 @@ const AppDetail: FC<Props> = ({ params }) => {
   return (
     <Layout
       pageHeader={
-        <PageHeader title={<FormattedMessage id="apub-app-center.details" />} />
+        <PageHeader title={<FormattedMessage id="apub-app-center.details" />}
+        linkLabel="APUB App Center"
+        />
       }
     >
       <PageBlock variation="full">
