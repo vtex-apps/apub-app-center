@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import { AppData } from '../../typings/appdata'
-//import MyUsersFilter from '../Filters'
 import AppCard from './AppCard'
 import Header from './Header'
 import {
@@ -9,6 +8,13 @@ import {
 } from 'vtex.styleguide'
 
 const auxCardList: any[] = [];
+interface CardFilter {
+  category: string[],
+  store: string[],
+  status: string[]
+}
+
+let cardFilter: CardFilter = { category: [], store: [], status: []};
 
 function SetCardData (setCardsList: any) {
   let app1 = {} as AppData;
@@ -181,9 +187,127 @@ function SetCardData (setCardsList: any) {
   setCardsList(auxCardList)
 }
 
-// function FilterCardData (setStatementsList: any) {
-//   console.log(setStatementsList);
-// }
+function FilterCardData (statementList : any) {
+  let cardsId: any[] = [];
+  FillCardFilter(statementList);
+  let listToFilter = auxCardList;
+
+  if(cardFilter.category.length > 0){
+    listToFilter.forEach((c: AppData) => {
+      cardFilter.category.forEach(cat => {
+        let hasCategory = c.category.includes(cat);
+        if(hasCategory){
+          if(!cardsId.includes(c.id)){
+            cardsId.push(c.id)
+          }
+        }
+      })
+    })
+  }
+
+  if(cardsId.length > 0){
+    listToFilter = listToFilter.filter(c => cardsId.includes(c.id));
+
+    cardsId = [];
+  }
+
+  if(cardFilter.store.length > 0){
+    listToFilter.forEach((c: AppData) => {
+      cardFilter.store.forEach(st => {
+        let hasStore = c.store.includes(st);
+        if(hasStore){
+          if(!cardsId.includes(c.id)){
+            cardsId.push(c.id)
+          }
+        }
+      })
+    })
+  }
+
+  if(cardsId.length > 0){
+    listToFilter = listToFilter.filter(c => cardsId.includes(c.id));
+
+    cardsId = [];
+  }
+
+  if(cardFilter.status.length > 0){
+    listToFilter.forEach((c: AppData) => {
+      cardFilter.status.forEach(sta => {
+        let hasStatus = c.status.includes(sta);
+        if(hasStatus){
+          if(!cardsId.includes(c.id)){
+            cardsId.push(c.id)
+          }
+        }
+      })
+    })
+  }
+
+  if(cardsId.length > 0){
+    listToFilter = listToFilter.filter(c => cardsId.includes(c.id));
+
+    cardsId = [];
+  }
+
+  return listToFilter;
+}
+
+function FillCardFilter(statementList: any[]){
+  statementList.forEach(s => {
+    let filteredStatements = GetSelectedStatements(s.object);
+    let statements = ConvertStatementsToStringArray(s.object);
+
+    let isCategory = IsCategoryFilter(statements);
+    let isStore = IsStoreFilter(statements);
+    let isStatus = IsStatusFilter(statements);
+
+    if(isCategory){
+      cardFilter.category = filteredStatements;
+    }
+
+    if(isStore){
+      cardFilter.store = filteredStatements;
+    }
+
+    if(isStatus){
+      cardFilter.status = filteredStatements;
+    }
+  })
+
+  console.log(cardFilter);
+}
+
+function IsCategoryFilter(statementList: string[]){
+  return statementList.includes("pdp");
+}
+
+function IsStoreFilter(statementList: string[]){
+  return statementList.includes("legacy");
+}
+
+function IsStatusFilter(statementList: string[]){
+  return statementList.includes("prod");
+}
+
+function ConvertStatementsToStringArray(statements: any){
+  let keys = Object.keys(statements);
+
+  return keys;
+}
+
+function GetSelectedStatements(statements: any){
+  let keys = Object.keys(statements);
+  let values = Object.values(statements);
+  let filteredStatements = [];
+
+  for(var i = 0; i < keys.length; i++){
+    if(values[i] == true){
+      filteredStatements.push(keys[i]);
+    }
+  }
+
+  return filteredStatements;
+}
 
 export default function Cards() {
   const [cardsList, setCardsList]= useState<AppData[]>([])
@@ -316,15 +440,16 @@ export default function Cards() {
   const [statementsList, setStatementsList] = useState();
   useEffect(() => {
     if (statementsList) {
-      console.log (statementsList);
-    } if (cardsList.length > 0){
+      let list = FilterCardData(statementsList);
+      setFilterCardsList(list);
+    }
+
+    if (cardsList.length > 0 && !statementsList){
       setFilterCardsList(cardsList);
     }
   }, [statementsList, cardsList])
 
   const [filterCardsList, setFilterCardsList] = useState<AppData[]>();
-
-
 
   return (
     <>
