@@ -4,7 +4,7 @@ interface Header {
   text: string
 }
 
-function Header(props: Header){
+const Header = (props: Header) => {
   return (
     <div className="w-100 flex flex-wrap bg-white pa3 mb2">
       <div className="flex flex-column w-100">

@@ -98,7 +98,7 @@ const AppCard = (props: AppData) => {
           {RenderCategoryTags(props.status, props.category)}
         </div>
         <div className='flex flex-column'>
-          <a className="link" href={props.url}>
+          <a className="link" href={`/admin/app/apub-app-center/${props.id}`}>
             <div className='flex'>
                 <div className="image-size mr4">
                   <img
@@ -120,7 +120,7 @@ const AppCard = (props: AppData) => {
             </p>
           </div>
           <div className='flex justify-end items-center'>
-            <Button variation="secondary" size="small" href={props.url}>
+            <Button variation="secondary" size="small" href={`/admin/app/apub-app-center/${props.id}`}>
               Ver más
             </Button>
           </div>
