@@ -319,13 +319,6 @@ export default function Cards() {
     }
   }, [])
 
-  // const [statementsList, setStatementsList]= useState<any[]>([])
-  // useEffect(() => {
-  //   if (statementsList.length !== 0) {
-  //     FilterCardData(setStatementsList);
-  //   }
-  // }, [])
-
   function CategorySelectorObject({ value, onChange }: any) {
     const initialValue = {
       pdp: true,
