@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import { AppData } from '../../typings/appdata'
+import { useIntl, FormattedMessage } from 'react-intl'
 import AppCard from './AppCard'
 import Header from './Header'
+import LoadingSpinner from './LoadingSpinner'
 import {
   FilterBar,
   Checkbox

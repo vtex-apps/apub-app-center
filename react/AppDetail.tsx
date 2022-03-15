@@ -18,11 +18,13 @@ const AppDetail: FC<Props> = ({ params }) => {
         />
       }
     >
-      <PageBlock variation="full">
+      <div className="bg-muted-5 pa8">
+        <PageBlock variation="aside">
         <div>
           Params: <pre>{JSON.stringify(params, null, 2)}</pre>
         </div>
-      </PageBlock>
+        </PageBlock>
+      </div>
     </Layout>
   )
 }
