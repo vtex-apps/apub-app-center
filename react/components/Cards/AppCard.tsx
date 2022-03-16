@@ -3,7 +3,7 @@ import { Button, Tag } from 'vtex.styleguide'
 import CardDiv from './CardDiv';
 import { AppData } from '../../typings/appdata'
 
-function GetStatusTagByColor(appStatus: string){
+const GetStatusTagByColor = (appStatus: string) => {
   switch(appStatus) {
     case 'prod':
       return (
@@ -26,7 +26,7 @@ function GetStatusTagByColor(appStatus: string){
   }
 }
 
-function RenderStatusTag (appStatus: string) {
+const RenderStatusTag = (appStatus: string) => {
   return(
     <div className="mb2">
       <span className="mr2">
@@ -36,7 +36,7 @@ function RenderStatusTag (appStatus: string) {
   )
 }
 
-function RenderStoreTags(appStatus: string, stores: string[]){
+const RenderStoreTags = (appStatus: string, stores: string[]) => {
   return(
     <div className="mb2">
       {stores.map((store, i) => {
@@ -62,7 +62,7 @@ function RenderStoreTags(appStatus: string, stores: string[]){
   );
 }
 
-function RenderCategoryTags(appStatus: string, categories: string []){
+const RenderCategoryTags = (appStatus: string, categories: string []) => {
   return(
     <div className="mb2">
       {categories.map((category, i) =>{
