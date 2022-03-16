@@ -405,6 +405,9 @@ export default function Cards() {
             documentation={card.documentation}
             download={card.download}
             version={card.version}
+            overview={card.overview}
+            feature={card.feature}
+            screenshot={card.screenshot}
             />)
         })}
     </div>}

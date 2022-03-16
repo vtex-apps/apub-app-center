@@ -14,8 +14,11 @@ const MockedData = {
     app1.category = ['solution'];
     app1.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito."
     app1.documentation = "https://vtex.io/docs/app/vtexarg.massive-price-update@1.x";
-    app1.download = "";
+    app1.download = "https://apps.vtex.com/vtexarg-massive-price-update/p";
     app1.version = 1;
+    app1.overview = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
+    app1.feature = ["Es excelente", "Es gratis", "Es rápida"];
+    app1.screenshot = "https://extensions.vtexassets.com/arquivos/ids/157316/image-5516ab6fdd624a748e299584e917e082.jpg?v=637771685440800000";
 
     let app2 = {} as AppData;
     app2.id = 2;
@@ -28,6 +31,9 @@ const MockedData = {
     app2.documentation = "https://vtex.io/docs/app/vtexarg.product-highlight-by-vtex-segment@0.3.2/";
     app2.download = "";
     app2.version = 0;
+    app2.overview = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
+    app2.feature = ["Es genial", "Es gratis", "Es rápida"];
+    app2.screenshot = "https://extensions.vtexassets.com/arquivos/ids/157316/image-5516ab6fdd624a748e299584e917e082.jpg?v=637771685440800000";
 
     let app3 = {} as AppData;
     app3.id = 3;
@@ -40,6 +46,9 @@ const MockedData = {
     app3.documentation = "https://vtex.io/docs/app/vtexarg.massive-score-update@3.1.1/";
     app3.download = "";
     app3.version = 3;
+    app3.overview = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
+    app3.feature = ["Es maravillosa", "Es gratis", "Es rápida"];
+    app3.screenshot = "https://extensions.vtexassets.com/arquivos/ids/157316/image-5516ab6fdd624a748e299584e917e082.jpg?v=637771685440800000";
 
     let app4 = {} as AppData;
     app4.id = 4;
@@ -50,8 +59,11 @@ const MockedData = {
     app4.category = ['solution'];
     app4.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
     app4.documentation = "https://vtex.io/docs/app/vtexarg.massive-stock-update@2.x/";
-    app4.download = "";
+    app4.download = "https://apps.vtex.com/vtexarg-massive-stock-update/p";
     app4.version = 2;
+    app4.overview = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
+    app4.feature = ["Es particular", "Es gratis", "Es rápida"];
+    app4.screenshot = "https://extensions.vtexassets.com/arquivos/ids/157316/image-5516ab6fdd624a748e299584e917e082.jpg?v=637771685440800000";
 
     let app5 = {} as AppData;
     app5.id = 5;
@@ -62,8 +74,11 @@ const MockedData = {
     app5.category = ['admin', 'pdp'];
     app5.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
     app5.documentation = "https://vtex.io/docs/app/vtexarg.tintometric@3.x/";
-    app5.download = "";
+    app5.download = "https://apps.vtex.com/vtexarg-tintometric/p";
     app5.version = 3;
+    app5.overview = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
+    app5.feature = ["Es excelente", "Es gratis", "Es rápida"];
+    app5.screenshot = "https://extensions.vtexassets.com/arquivos/ids/157316/image-5516ab6fdd624a748e299584e917e082.jpg?v=637771685440800000";
 
     let app6 = {} as AppData;
     app6.id = 6;
@@ -76,6 +91,9 @@ const MockedData = {
     app6.documentation = "https://vtex.io/docs/app/vtexarg.pharma-orders-admin@0.1.4/";
     app6.download = "";
     app6.version = 0;
+    app6.overview = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
+    app6.feature = ["Es excelente", "Es gratis", "Es rápida"];
+    app6.screenshot = "https://extensions.vtexassets.com/arquivos/ids/157316/image-5516ab6fdd624a748e299584e917e082.jpg?v=637771685440800000";
 
     let app7 = {} as AppData;
     app7.id = 7;
@@ -88,6 +106,9 @@ const MockedData = {
     app7.documentation = "https://vtex.io/docs/app/vtexarg.product-availability-gallery@1.1.2/";
     app7.download = "";
     app7.version = 1;
+    app7.overview = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
+    app7.feature = ["Es excelente", "Es gratis", "Es rápida"];
+    app7.screenshot = "https://extensions.vtexassets.com/arquivos/ids/157316/image-5516ab6fdd624a748e299584e917e082.jpg?v=637771685440800000";
 
     let app8 = {} as AppData;
     app8.id = 8;
@@ -98,8 +119,11 @@ const MockedData = {
     app8.category = ['admin', 'pdp'];
     app8.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
     app8.documentation = "https://vtex.io/docs/app/vtexarg.qr-barcode-reader@1.x/";
-    app8.download = "";
+    app8.download = "https://apps.vtex.com/vtexarg-qr-barcode-reader/p";
     app8.version = 1;
+    app8.overview = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
+    app8.feature = ["Es excelente", "Es gratis", "Es rápida"];
+    app8.screenshot = "https://extensions.vtexassets.com/arquivos/ids/157316/image-5516ab6fdd624a748e299584e917e082.jpg?v=637771685440800000";
 
     let app9 = {} as AppData;
     app9.id = 9;
@@ -110,8 +134,11 @@ const MockedData = {
     app9.category = ['admin'];
     app9.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
     app9.documentation = "https://vtex.io/docs/app/vtexarg.workspace-manager@2.x/";
-    app9.download = "";
+    app9.download = "https://apps.vtex.com/vtexarg-workspace-manager/p";
     app9.version = 2;
+    app9.overview = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
+    app9.feature = ["Es excelente", "Es gratis", "Es rápida"];
+    app9.screenshot = "https://extensions.vtexassets.com/arquivos/ids/157316/image-5516ab6fdd624a748e299584e917e082.jpg?v=637771685440800000";
 
     let app10 = {} as AppData;
     app10.id = 10;
@@ -124,6 +151,9 @@ const MockedData = {
     app10.documentation = "https://vtex.io/docs/app/vtexarg.abtester@1.0.7/";
     app10.download = "";
     app10.version = 1;
+    app10.overview = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
+    app10.feature = ["Es excelente", "Es gratis", "Es rápida"];
+    app10.screenshot = "https://extensions.vtexassets.com/arquivos/ids/157316/image-5516ab6fdd624a748e299584e917e082.jpg?v=637771685440800000";
 
     let app11 = {} as AppData;
     app11.id = 11;
@@ -136,6 +166,9 @@ const MockedData = {
     app11.documentation = "https://vtex.io/docs/app/vtexarg.admin-ley-gondolas-arg@0.2.0/";
     app11.download = "";
     app11.version = 0;
+    app11.overview = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
+    app11.feature = ["Es excelente", "Es gratis", "Es rápida"];
+    app11.screenshot = "https://extensions.vtexassets.com/arquivos/ids/157316/image-5516ab6fdd624a748e299584e917e082.jpg?v=637771685440800000";
 
     let app12 = {} as AppData;
     app12.id = 12;
@@ -148,6 +181,9 @@ const MockedData = {
     app12.documentation = "https://vtex.io/docs/app/vtex.vtex-logger-react@1.0.1/";
     app12.download = "";
     app12.version = 1;
+    app12.overview = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
+    app12.feature = ["Es excelente", "Es gratis", "Es rápida"];
+    app12.screenshot = "https://extensions.vtexassets.com/arquivos/ids/157316/image-5516ab6fdd624a748e299584e917e082.jpg?v=637771685440800000";
 
     let app13 = {} as AppData;
     app13.id = 13;
@@ -158,8 +194,11 @@ const MockedData = {
     app13.category = ['search'];
     app13.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
     app13.documentation = "https://developers.vtex.com/vtex-developer-docs/docs/vtexarg-speech-to-text";
-    app13.download = "";
+    app13.download = "https://apps.vtex.com/vtexarg-speech-to-text/p";
     app13.version = 1;
+    app13.overview = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
+    app13.feature = ["Es excelente", "Es gratis", "Es rápida"];
+    app13.screenshot = "https://extensions.vtexassets.com/arquivos/ids/157316/image-5516ab6fdd624a748e299584e917e082.jpg?v=637771685440800000";
 
     let app14 = {} as AppData;
     app14.id = 14;
@@ -170,8 +209,11 @@ const MockedData = {
     app14.category = ['checkout'];
     app14.description = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
     app14.documentation = "https://vtex.io/docs/app/vtexarg.quantity-on-cart@2.2.7/";
-    app14.download = "";
+    app14.download = "https://apps.vtex.com/vtexarg-quantity-on-cart/p";
     app14.version = 2;
+    app14.overview = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
+    app14.feature = ["Es excelente", "Es gratis", "Es rápida"];
+    app14.screenshot = "https://extensions.vtexassets.com/arquivos/ids/157316/image-5516ab6fdd624a748e299584e917e082.jpg?v=637771685440800000";
 
     let app15 = {} as AppData;
     app15.id = 15;
@@ -184,6 +226,9 @@ const MockedData = {
     app15.documentation = "https://vtex.io/docs/app/vtex.vtex-logger-graphql@0.2.0/";
     app15.download = "";
     app15.version = 0;
+    app15.overview = "Permite escanear y leer códigos de barras o QR de productos para dirigirte a su PDP o agregarlos al carrito.";
+    app15.feature = ["Es excelente", "Es gratis", "Es rápida"];
+    app15.screenshot = "https://extensions.vtexassets.com/arquivos/ids/157316/image-5516ab6fdd624a748e299584e917e082.jpg?v=637771685440800000";
 
     mockedDataList.push(app1);
     mockedDataList.push(app2);

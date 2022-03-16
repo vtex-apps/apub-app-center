@@ -16,6 +16,11 @@ body,
   height: 3.5rem;
 }
 
+.image-size-detail {
+  width: 10rem;
+  height: 10rem;
+}
+
 .card-div-name {
   width: calc(100% - 75px);
 }

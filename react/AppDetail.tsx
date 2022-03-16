@@ -47,7 +47,13 @@ const AppDetail: FC<Props> = ({ params }) => {
             className="flex items-stretch w-10 justify-center">
             <Divider orientation="vertical" />
           </div>
-          <AppTabs/>
+          <AppTabs
+          name={appInfo?.name || ''}
+          download={appInfo?.download || ''}
+          overview={appInfo?.overview || ''}
+          feature={appInfo?.feature || []}
+          screenshot= {appInfo?.screenshot || ''}
+          />
         </div>
       </PageBlock>
     </Layout>

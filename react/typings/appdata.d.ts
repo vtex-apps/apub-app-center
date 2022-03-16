@@ -8,5 +8,8 @@ export interface AppData {
   description: string
   documentation: string,
   download: string,
-  version: number
+  version: number,
+  overview: string,
+  feature: string[],
+  screenshot: string
 }
