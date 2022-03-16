@@ -6,4 +6,7 @@ export interface AppData {
   store: string[],
   category: string[],
   description: string
+  documentation: string,
+  download: string,
+  version: number
 }

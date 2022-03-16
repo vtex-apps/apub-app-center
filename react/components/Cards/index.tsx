@@ -144,136 +144,143 @@ const GetSelectedStatements = (statements: any) => {
   return filteredStatements;
 }
 
+const CategorySelectorObject = ({ value, onChange }: any) => {
+  const initialValue = {
+    pdp: true,
+    admin: true,
+    search: true,
+    gallery: true,
+    solution: true,
+    checkout: true,
+    ...(value || {}),
+  }
+  const toggleValueByKey = (key: any) => {
+    const newValues = {
+      ...(value || initialValue),
+      [key]: value ? !value[key] : false,
+    }
+    return newValues
+  }
+  return (
+    <div>
+      {Object.keys(initialValue).map((opt, index) => {
+        return (
+          <div className="mb3" key={`class-statment-object-${opt}-${index}`}>
+            <Checkbox
+              checked={value ? value[opt] : initialValue[opt]}
+              id={`class-${opt}`}
+              label={opt}
+              name="class-checkbox-group"
+              onChange={() => {
+                const newValue = toggleValueByKey(`${opt}`)
+                onChange(newValue)
+              }}
+              value={opt}
+            />
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
+const StoreSelectorObject = ({ value, onChange }: any) => {
+  const initialValue = {
+    legacy: true,
+    io: true,
+    ...(value || {}),
+  }
+  const toggleValueByKey = (key: any) => {
+    const newValues = {
+      ...(value || initialValue),
+      [key]: value ? !value[key] : false,
+    }
+    return newValues
+  }
+  return (
+    <div>
+      {Object.keys(initialValue).map((opt, index) => {
+        return (
+          <div className="mb3" key={`class-statment-object-${opt}-${index}`}>
+            <Checkbox
+              checked={value ? value[opt] : initialValue[opt]}
+              id={`class-${opt}`}
+              label={opt}
+              name="class-checkbox-group"
+              onChange={() => {
+                const newValue = toggleValueByKey(`${opt}`)
+                onChange(newValue)
+              }}
+              value={opt}
+            />
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
+const StatusSelectorObject = ({ value, onChange }: any) => {
+  const initialValue = {
+    prod: true,
+    beta: true,
+    idea: true,
+    ...(value || {}),
+  }
+  const toggleValueByKey = (key: any) => {
+    const newValues = {
+      ...(value || initialValue),
+      [key]: value ? !value[key] : false,
+    }
+    return newValues
+  }
+  return (
+    <div>
+      {Object.keys(initialValue).map((opt, index) => {
+        return (
+          <div className="mb3" key={`class-statment-object-${opt}-${index}`}>
+            <Checkbox
+              checked={value ? value[opt] : initialValue[opt]}
+              id={`class-${opt}`}
+              label={opt}
+              name="class-checkbox-group"
+              onChange={() => {
+                const newValue = toggleValueByKey(`${opt}`)
+                onChange(newValue)
+              }}
+              value={opt}
+            />
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
 export default function Cards() {
+
   const [cardsList, setCardsList]= useState<AppData[]>([])
   useEffect(() => {
     if (cardsList.length === 0) {
       SetCardData(setCardsList);
+    } else {
+      console.log("Salgo del if que renderiza cards al principio");
     }
   }, [])
-
-  function CategorySelectorObject({ value, onChange }: any) {
-    const initialValue = {
-      pdp: true,
-      admin: true,
-      search: true,
-      gallery: true,
-      solution: true,
-      checkout: true,
-      ...(value || {}),
-    }
-    const toggleValueByKey = (key: any) => {
-      const newValues = {
-        ...(value || initialValue),
-        [key]: value ? !value[key] : false,
-      }
-      return newValues
-    }
-    return (
-      <div>
-        {Object.keys(initialValue).map((opt, index) => {
-          return (
-            <div className="mb3" key={`class-statment-object-${opt}-${index}`}>
-              <Checkbox
-                checked={value ? value[opt] : initialValue[opt]}
-                id={`class-${opt}`}
-                label={opt}
-                name="class-checkbox-group"
-                onChange={() => {
-                  const newValue = toggleValueByKey(`${opt}`)
-                  onChange(newValue)
-                }}
-                value={opt}
-              />
-            </div>
-          )
-        })}
-      </div>
-    )
-  }
-
-  function StoreSelectorObject({ value, onChange }: any) {
-    const initialValue = {
-      legacy: true,
-      io: true,
-      ...(value || {}),
-    }
-    const toggleValueByKey = (key: any) => {
-      const newValues = {
-        ...(value || initialValue),
-        [key]: value ? !value[key] : false,
-      }
-      return newValues
-    }
-    return (
-      <div>
-        {Object.keys(initialValue).map((opt, index) => {
-          return (
-            <div className="mb3" key={`class-statment-object-${opt}-${index}`}>
-              <Checkbox
-                checked={value ? value[opt] : initialValue[opt]}
-                id={`class-${opt}`}
-                label={opt}
-                name="class-checkbox-group"
-                onChange={() => {
-                  const newValue = toggleValueByKey(`${opt}`)
-                  onChange(newValue)
-                }}
-                value={opt}
-              />
-            </div>
-          )
-        })}
-      </div>
-    )
-  }
-
-  function StatusSelectorObject({ value, onChange }: any) {
-    const initialValue = {
-      prod: true,
-      beta: true,
-      idea: true,
-      ...(value || {}),
-    }
-    const toggleValueByKey = (key: any) => {
-      const newValues = {
-        ...(value || initialValue),
-        [key]: value ? !value[key] : false,
-      }
-      return newValues
-    }
-    return (
-      <div>
-        {Object.keys(initialValue).map((opt, index) => {
-          return (
-            <div className="mb3" key={`class-statment-object-${opt}-${index}`}>
-              <Checkbox
-                checked={value ? value[opt] : initialValue[opt]}
-                id={`class-${opt}`}
-                label={opt}
-                name="class-checkbox-group"
-                onChange={() => {
-                  const newValue = toggleValueByKey(`${opt}`)
-                  onChange(newValue)
-                }}
-                value={opt}
-              />
-            </div>
-          )
-        })}
-      </div>
-    )
-  }
 
   const [statementsList, setStatementsList] = useState();
   useEffect(() => {
     if (statementsList) {
       let list = FilterCardData(statementsList);
       setFilterCardsList(list);
+    } else {
+      console.log("Salgo del if que filtra las cards cuando hay filtros");
     }
 
     if (cardsList.length > 0 && !statementsList){
       setFilterCardsList(cardsList);
+    } else {
+      console.log("Salgo cuando no hay filtros y la lista no esta vacia");
     }
   }, [statementsList, cardsList])
 
@@ -382,19 +389,24 @@ export default function Cards() {
 
       </div>
       <Header text="Todas las Apps"/>
-      {filterCardsList && <div className="flex flex-wrap">
+      {filterCardsList &&
+      <div className="flex flex-wrap">
         {}
-      {filterCardsList.map((card) => {
-        return(<AppCard
-          key={card.id}
-          id={card.id}
-          name={card.name}
-          photo={card.photo}
-          status={card.status}
-          store={card.store}
-          category={card.category}
-          description={card.description}/>)
-      })}
+        {filterCardsList.map((card) => {
+          return(<AppCard
+            key={card.id}
+            id={card.id}
+            name={card.name}
+            photo={card.photo}
+            status={card.status}
+            store={card.store}
+            category={card.category}
+            description={card.description}
+            documentation={card.documentation}
+            download={card.download}
+            version={card.version}
+            />)
+        })}
     </div>}
     </>
   )

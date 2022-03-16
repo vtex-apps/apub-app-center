@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react'
-import { FormattedMessage } from 'react-intl'
+// import { FormattedMessage } from 'react-intl'
 import { Divider, Layout, PageBlock, PageHeader } from 'vtex.styleguide'
 import AppTabs from './components/Detail/AppTabs'
 import { useRuntime } from 'vtex.render-runtime'
@@ -7,6 +7,7 @@ import { AppData } from './typings/appdata'
 import MockedData from './data/mockedData'
 
 import './styles/styles.global.css'
+import Resume from './components/Detail/Resume'
 
 const AppDetail: FC<Props> = ({ params }) => {
   const { navigate } = useRuntime();
@@ -14,7 +15,7 @@ const AppDetail: FC<Props> = ({ params }) => {
   useEffect(() => {
     if (!appInfo){
       let apps = MockedData.GetData();
-      let app = apps.filter(x => x.id == params.id)[0];
+      let app = apps.filter(ap => ap.id == params.id)[0];
       setAppInfo(app);
     }
   }, [])
@@ -23,25 +24,24 @@ const AppDetail: FC<Props> = ({ params }) => {
     <Layout
       pageHeader={
         <PageHeader
-        title={<FormattedMessage id="apub-app-center.details" />}
-        linkLabel="APUB App Center"
-        onLinkClick={() => {
-          navigate({to: `/admin/app/apub-app-center`})
-        }}
+          title={appInfo?.name}
+          linkLabel="APUB App Center"
+          onLinkClick={() => {
+            navigate({to: `/admin/app/apub-app-center`})
+          }}
         />
       }
     >
       <PageBlock variation="full">
         <div className="flex">
-          <div className="w-20">
-            <p className="f6 gray ma0">
-              Version: 0.1.2x
-            </p>
-            <div>
-              Params: <pre>{JSON.stringify(params, null, 2)}</pre>
-              Nombre: {appInfo?.name}
-            </div>
-          </div>
+          <Resume
+          photo={appInfo?.photo || ''}
+          version={appInfo?.version || 0}
+          status={appInfo?.status || ''}
+          store={appInfo?.store || []}
+          category={appInfo?.category || []}
+          documentation={appInfo?.documentation || ''}
+          />
           <div
             style={{ flexGrow: 1 }}
             className="flex items-stretch w-10 justify-center">
