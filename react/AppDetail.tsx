@@ -53,6 +53,12 @@ const AppDetail: FC<Props> = ({ params }) => {
           overview={appInfo?.overview || ''}
           feature={appInfo?.feature || []}
           screenshot= {appInfo?.screenshot || ''}
+          workspace= {appInfo?.workspace || ''}
+          video= {appInfo?.video || ''}
+          requirements={appInfo?.requirements || []}
+          tutorial={appInfo?.tutorial || []}
+          assets={appInfo?.assets || []}
+          github= {appInfo?.screenshot || ''}
           />
         </div>
       </PageBlock>

@@ -40,8 +40,64 @@ const RenderAppFeatures = ( features: string[] ) => {
   )
 }
 
+const RenderAppRequirements = ( requirements: string[] ) => {
+  return(
+    (requirements.map(requirement =>{
+      return(
+        <li>
+          <p className="f6 gray ma0">
+          {requirement}
+          </p>
+        </li>
+      )
+    }))
+  )
+}
 
-const AppTabs = (props: { name: string, download: string, overview: string, feature: string[], screenshot: string }) => {
+const RenderAppTutorial = ( tutorials: string[] ) => {
+  return(
+    (tutorials.map(tutorial =>{
+      return(
+        <li>
+          <p className="f6 ma0">
+          {tutorial}
+          </p>
+        </li>
+      )
+    }))
+  )
+}
+
+const RenderAppAssets = ( assets: string[] ) => {
+  return(
+    (assets.map(asset =>{
+      return(
+        <p className="f6 gray ma0">
+          <Link
+            href=""
+            target="_blank"
+            mediumWeigth>
+            {asset}
+          </Link>
+        </p>
+      )
+    }))
+  )
+}
+
+const AppTabs = (props: {
+  name: string,
+  download: string,
+  overview: string,
+  feature: string[],
+  screenshot: string,
+  workspace: string,
+  video: string,
+  requirements: string[],
+  tutorial: string[],
+  assets: string[],
+  github: string
+}) => {
   const [currentTab, setCurrentTab] = useState<Number>(1);
   return (
     <div className="w-80">
@@ -87,13 +143,11 @@ const AppTabs = (props: { name: string, download: string, overview: string, feat
           onClick={() => setCurrentTab(2)}>
           <p className="f9 mt8 mb5">Entorno</p>
           <p className="f6 gray ma0">
-            In Cards, your customer is given autonomy to manage credit cards
-            related to his account, and can add, remove or edit credit card data.
+            {props.workspace}
           </p>
           <p className="f9 mt8 mb5">Video</p>
           <p className="f6 gray ma0">
-            In Cards, your customer is given autonomy to manage credit cards
-            related to his account, and can add, remove or edit credit card data.
+            {props.video}
           </p>
         </Tab>
 
@@ -103,51 +157,33 @@ const AppTabs = (props: { name: string, download: string, overview: string, feat
           onClick={() => setCurrentTab(3)}>
           <p className="f9 mt8 mb5">Requisitos</p>
           <ul>
-            <li>
-              <p className="f6 gray ma0">
-              In Cards, your customer is given autonomy to manage credit cards
-              related to his account, and can add, remove or edit credit card data.
-              </p>
-            </li>
-            <li>
-              <p className="f6 gray ma0">
-              In Cards, your customer is given autonomy to manage credit cards
-              related to his account, and can add, remove or edit credit card data.
-              </p>
-            </li>
-            <li>
-              <p className="f6 gray ma0">
-              In Cards, your customer is given autonomy to manage credit cards
-              related to his account, and can add, remove or edit credit card data.
-              </p>
-            </li>
+            {RenderAppRequirements(props.requirements)}
           </ul>
+
           <p className="f9 mt8 mb5">Paso a Paso</p>
-          <p className="f6 gray ma0">
-            In Cards, your customer is given autonomy to manage credit cards
-            related to his account, and can add, remove or edit credit card data.
-          </p>
+
+          <ol>
+            {RenderAppTutorial(props.requirements)}
+          </ol>
+
           <p className="f9 mt8 mb5">Descargar Assets</p>
-          <p className="f6 gray ma0">
-            <Link
-              href=""
-              target="_blank"
-              mediumWeigth>
-              Descargar Assets
-            </Link>
-          </p>
+
+          <div>
+            {RenderAppAssets(props.assets)}
+          </div>
+
           <p className="f9 mt8 mb5">Links de Ayuda</p>
           <p className="f6 gray ma0">
             <Link
-              href=""
+              href="https://vtex.slack.com/archives/C017JF73XCH"
               target="_blank"
               mediumWeigth>
-              Canal de Slack FPA
+              Canal de Slack APUB First Party Apps
             </Link>
           </p>
           <p className="f6 gray ma0">
             <Link
-              href=""
+              href={props.github}
               target="_blank"
               mediumWeigth>
               Repo de Github

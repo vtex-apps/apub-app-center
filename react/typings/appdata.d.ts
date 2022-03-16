@@ -11,5 +11,11 @@ export interface AppData {
   version: number,
   overview: string,
   feature: string[],
-  screenshot: string
+  screenshot: string,
+  workspace: string,
+  video: string,
+  requirements: string[],
+  tutorial: string[],
+  assets: string[],
+  github: string
 }

@@ -408,6 +408,12 @@ export default function Cards() {
             overview={card.overview}
             feature={card.feature}
             screenshot={card.screenshot}
+            workspace={card.workspace}
+            video={card.video}
+            requirements={card.requirements}
+            tutorial={card.tutorial}
+            assets={card.assets}
+            github={card.github}
             />)
         })}
     </div>}
