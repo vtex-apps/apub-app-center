@@ -68,7 +68,7 @@ const MockedData = {
     let app6 = {} as AppData;
     app6.id = 6;
     app6.name = "Pharma orders admin";
-    app6.photo = "https://extensions.vtexassets.com/arquivos/ids/157356-800-auto?v=637789878477770000&width=800&height=auto&aspect=true";
+    app6.photo = "";
     app6.status = "prod";
     app6.store = ['io'];
     app6.category = ['admin'];
@@ -80,7 +80,7 @@ const MockedData = {
     let app7 = {} as AppData;
     app7.id = 7;
     app7.name = "Product availability gallery";
-    app7.photo = "https://extensions.vtexassets.com/arquivos/ids/157356-800-auto?v=637789878477770000&width=800&height=auto&aspect=true";
+    app7.photo = "";
     app7.status = "prod";
     app7.store = ['io'];
     app7.category = ['pdp', 'gallery', 'search'];
@@ -128,7 +128,7 @@ const MockedData = {
     let app11 = {} as AppData;
     app11.id = 11;
     app11.name = "Admin Ley de Gondolas Arg";
-    app11.photo = "https://extensions.vtexassets.com/arquivos/ids/157356-800-auto?v=637789878477770000&width=800&height=auto&aspect=true";
+    app11.photo = "";
     app11.status = "prod";
     app11.store = ['legacy', 'io'];
     app11.category = ['admin', 'pdp'];
@@ -140,7 +140,7 @@ const MockedData = {
     let app12 = {} as AppData;
     app12.id = 12;
     app12.name = "Vtex-logger react";
-    app12.photo = "https://extensions.vtexassets.com/arquivos/ids/157356-800-auto?v=637789878477770000&width=800&height=auto&aspect=true";
+    app12.photo = "";
     app12.status = "prod";
     app12.store = ['io'];
     app12.category = ['solution'];
@@ -176,7 +176,7 @@ const MockedData = {
     let app15 = {} as AppData;
     app15.id = 15;
     app15.name = "Vtex-logger GraphQL";
-    app15.photo = "https://extensions.vtexassets.com/arquivos/ids/157356-800-auto?v=637789878477770000&width=800&height=auto&aspect=true";
+    app15.photo = "";
     app15.status = "prod";
     app15.store = ['io'];
     app15.category = ['solution'];
