@@ -7,6 +7,7 @@ import {
   Checkbox
 } from 'vtex.styleguide'
 import MockedData from '../../data/mockedData'
+import LoadingSpinner from './LoadingSpinner'
 
 interface CardFilter {
   category: string[],
@@ -17,9 +18,10 @@ interface CardFilter {
 let auxCardList: any[] = [];
 let cardFilter: CardFilter = { category: [], store: [], status: []};
 
-const SetCardData = (setCardsList: any) => {
+const SetCardData = (setCardsList: any, setLoadingState: any) => {
   auxCardList = MockedData.GetData();
-  setCardsList(auxCardList)
+  setCardsList(auxCardList);
+  setLoadingState(false);
 }
 
 const FilterCardData = (statementList : any) => {
@@ -257,139 +259,9 @@ const StatusSelectorObject = ({ value, onChange }: any) => {
   )
 }
 
-export default function Cards() {
-
-  const [cardsList, setCardsList]= useState<AppData[]>([])
-  useEffect(() => {
-    if (cardsList.length === 0) {
-      SetCardData(setCardsList);
-    } else {
-      console.log("Salgo del if que renderiza cards al principio");
-    }
-  }, [])
-
-  const [statementsList, setStatementsList] = useState();
-  useEffect(() => {
-    if (statementsList) {
-      let list = FilterCardData(statementsList);
-      setFilterCardsList(list);
-    } else {
-      console.log("Salgo del if que filtra las cards cuando hay filtros");
-    }
-
-    if (cardsList.length > 0 && !statementsList){
-      setFilterCardsList(cardsList);
-    } else {
-      console.log("Salgo cuando no hay filtros y la lista no esta vacia");
-    }
-  }, [statementsList, cardsList])
-
-  const [filterCardsList, setFilterCardsList] = useState<AppData[]>();
-
-  return (
-    <>
-      <Header text="Filtros"/>
-      <div className="ma3 pa3 mb2 ba br2 b--muted-4">
-
-        <FilterBar
-          alwaysVisibleFilters={['categoria', 'tienda', 'status']}
-          statements={statementsList}
-          onChangeStatements={(statement: any) => setStatementsList(statement)}
-          clearAllFiltersButtonLabel="Limpiar filtros"
-          options={{
-            categoria: {
-              label: 'Categoria',
-              renderFilterLabel: (st: any) => {
-                if (!st || !st.object) {
-                  // you should treat empty object cases only for alwaysVisibleFilters
-                  return 'Todas'
-                }
-                const keys = st.object ? Object.keys(st.object) : []
-                const isAllTrue = !keys.some(key => !st.object[key])
-                const isAllFalse = !keys.some(key => st.object[key])
-                const trueKeys = keys.filter(key => st.object[key])
-                let trueKeysLabel = ''
-                trueKeys.forEach((key, index) => {
-                  trueKeysLabel += `${key}${
-                    index === trueKeys.length - 1 ? '' : ', '
-                  }`
-                })
-                return `${
-                  isAllTrue ? 'Todas' : isAllFalse ? 'Ninguna' : `${trueKeysLabel}`
-                }`
-              },
-              verbs: [
-                {
-                  value: 'includes',
-                  object: (props: any) => <CategorySelectorObject {...props} />,
-                },
-              ],
-            },
-
-            tienda: {
-              label: 'Tienda',
-              renderFilterLabel: (st: any) => {
-                if (!st || !st.object) {
-                  // you should treat empty object cases only for alwaysVisibleFilters
-                  return 'Todas'
-                }
-                const keys = st.object ? Object.keys(st.object) : []
-                const isAllTrue = !keys.some(key => !st.object[key])
-                const isAllFalse = !keys.some(key => st.object[key])
-                const trueKeys = keys.filter(key => st.object[key])
-                let trueKeysLabel = ''
-                trueKeys.forEach((key, index) => {
-                  trueKeysLabel += `${key}${
-                    index === trueKeys.length - 1 ? '' : ', '
-                  }`
-                })
-                return `${
-                  isAllTrue ? 'Todas' : isAllFalse ? 'Ninguna' : `${trueKeysLabel}`
-                }`
-              },
-              verbs: [
-                {
-                  value: 'includes',
-                  object: (props: any) => <StoreSelectorObject {...props} />,
-                },
-              ],
-            },
-
-            status: {
-              label: 'Status',
-              renderFilterLabel: (st: any) => {
-                if (!st || !st.object) {
-                  // you should treat empty object cases only for alwaysVisibleFilters
-                  return 'Todas'
-                }
-                const keys = st.object ? Object.keys(st.object) : []
-                const isAllTrue = !keys.some(key => !st.object[key])
-                const isAllFalse = !keys.some(key => st.object[key])
-                const trueKeys = keys.filter(key => st.object[key])
-                let trueKeysLabel = ''
-                trueKeys.forEach((key, index) => {
-                  trueKeysLabel += `${key}${
-                    index === trueKeys.length - 1 ? '' : ', '
-                  }`
-                })
-                return `${
-                  isAllTrue ? 'Todas' : isAllFalse ? 'Ninguna' : `${trueKeysLabel}`
-                }`
-              },
-              verbs: [
-                {
-                  value: 'includes',
-                  object: (props: any) => <StatusSelectorObject {...props} />,
-                },
-              ],
-            },
-
-          }}
-        />
-
-      </div>
-      <Header text="Todas las Apps"/>
-      {filterCardsList &&
+const RenderCardList = (filterCardsList: any[]) => {
+  return(
+    filterCardsList &&
       <div className="flex flex-wrap">
         {}
         {filterCardsList.map((card) => {
@@ -416,7 +288,151 @@ export default function Cards() {
             github={card.github}
             />)
         })}
-    </div>}
+    </div>
+  );
+}
+
+const LoadingCards = () => {
+  return(
+    <LoadingSpinner/>
+  );
+}
+
+export default function Cards() {
+
+  const [cardsList, setCardsList]= useState<AppData[]>([])
+  useEffect(() => {
+    if (cardsList.length === 0) {
+      SetCardData(setCardsList, setLoadingState);
+    } else {
+      console.log("Salgo del if que renderiza cards al principio");
+    }
+  }, [])
+
+  const [statementsList, setStatementsList] = useState();
+  useEffect(() => {
+    if (statementsList) {
+      let list = FilterCardData(statementsList);
+      setFilterCardsList(list);
+    } else {
+      console.log("Salgo del if que filtra las cards cuando hay filtros");
+    }
+
+    if (cardsList.length > 0 && !statementsList){
+      setFilterCardsList(cardsList);
+    } else {
+      console.log("Salgo cuando no hay filtros y la lista no esta vacia");
+    }
+  }, [statementsList, cardsList])
+
+  const [isLoading, setLoadingState] = useState<boolean>(true);
+
+  const [filterCardsList, setFilterCardsList] = useState<AppData[]>();
+
+  const RenderCards = isLoading ? LoadingCards() : RenderCardList(filterCardsList || []);
+
+  return (
+    <>
+      <Header text="Filtros"/>
+        <div className="ma3 pa3 mb2 ba br2 b--muted-4">
+          <FilterBar
+            alwaysVisibleFilters={['categoria', 'tienda', 'status']}
+            statements={statementsList}
+            onChangeStatements={(statement: any) => setStatementsList(statement)}
+            clearAllFiltersButtonLabel="Limpiar filtros"
+            options={{
+              categoria: {
+                label: 'Categoria',
+                renderFilterLabel: (st: any) => {
+                  if (!st || !st.object) {
+                    // you should treat empty object cases only for alwaysVisibleFilters
+                    return 'Todas'
+                  }
+                  const keys = st.object ? Object.keys(st.object) : []
+                  const isAllTrue = !keys.some(key => !st.object[key])
+                  const isAllFalse = !keys.some(key => st.object[key])
+                  const trueKeys = keys.filter(key => st.object[key])
+                  let trueKeysLabel = ''
+                  trueKeys.forEach((key, index) => {
+                    trueKeysLabel += `${key}${
+                      index === trueKeys.length - 1 ? '' : ', '
+                    }`
+                  })
+                  return `${
+                    isAllTrue ? 'Todas' : isAllFalse ? 'Ninguna' : `${trueKeysLabel}`
+                  }`
+                },
+                verbs: [
+                  {
+                    value: 'includes',
+                    object: (props: any) => <CategorySelectorObject {...props} />,
+                  },
+                ],
+              },
+
+              tienda: {
+                label: 'Tienda',
+                renderFilterLabel: (st: any) => {
+                  if (!st || !st.object) {
+                    // you should treat empty object cases only for alwaysVisibleFilters
+                    return 'Todas'
+                  }
+                  const keys = st.object ? Object.keys(st.object) : []
+                  const isAllTrue = !keys.some(key => !st.object[key])
+                  const isAllFalse = !keys.some(key => st.object[key])
+                  const trueKeys = keys.filter(key => st.object[key])
+                  let trueKeysLabel = ''
+                  trueKeys.forEach((key, index) => {
+                    trueKeysLabel += `${key}${
+                      index === trueKeys.length - 1 ? '' : ', '
+                    }`
+                  })
+                  return `${
+                    isAllTrue ? 'Todas' : isAllFalse ? 'Ninguna' : `${trueKeysLabel}`
+                  }`
+                },
+                verbs: [
+                  {
+                    value: 'includes',
+                    object: (props: any) => <StoreSelectorObject {...props} />,
+                  },
+                ],
+              },
+
+              status: {
+                label: 'Status',
+                renderFilterLabel: (st: any) => {
+                  if (!st || !st.object) {
+                    // you should treat empty object cases only for alwaysVisibleFilters
+                    return 'Todas'
+                  }
+                  const keys = st.object ? Object.keys(st.object) : []
+                  const isAllTrue = !keys.some(key => !st.object[key])
+                  const isAllFalse = !keys.some(key => st.object[key])
+                  const trueKeys = keys.filter(key => st.object[key])
+                  let trueKeysLabel = ''
+                  trueKeys.forEach((key, index) => {
+                    trueKeysLabel += `${key}${
+                      index === trueKeys.length - 1 ? '' : ', '
+                    }`
+                  })
+                  return `${
+                    isAllTrue ? 'Todas' : isAllFalse ? 'Ninguna' : `${trueKeysLabel}`
+                  }`
+                },
+                verbs: [
+                  {
+                    value: 'includes',
+                    object: (props: any) => <StatusSelectorObject {...props} />,
+                  },
+                ],
+              },
+
+            }}
+          />
+        </div>
+      <Header text="Todas las Apps"/>
+        {RenderCards}
     </>
   )
 }

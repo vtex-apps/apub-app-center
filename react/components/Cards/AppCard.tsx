@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Button, Tag } from 'vtex.styleguide'
 import CardDiv from './CardDiv';
 import { AppData } from '../../typings/appdata'
@@ -122,6 +122,7 @@ const RenderPhoto = (appPhoto: string) => {
 }
 
 const AppCard = (props: AppData) => {
+  const [loadingState, setLoadingState]= useState<boolean>(false);
   return (
     <div className='w-100 w-third-ns pa3' key={"card-" + props.id}>
       <CardDiv>
@@ -147,7 +148,13 @@ const AppCard = (props: AppData) => {
             </p>
           </div>
           <div className='flex justify-end items-center'>
-            <Button variation="secondary" size="small" href={`/admin/app/apub-app-center/${props.id}`}>
+            <Button
+            variation="secondary"
+            size="small"
+            href={`/admin/app/apub-app-center/${props.id}`}
+            onClick={() => setLoadingState(!loadingState)}
+            isLoading={loadingState}
+            >
               Ver más
             </Button>
           </div>

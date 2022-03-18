@@ -12,18 +12,18 @@ const RenderPhoto = (appPhoto: string) => {
 
   return(
     <>
-    {
-      appPhoto == null || appPhoto == '' ?
-      (
-        <div className="mw-100 mh-100 image-size-detail bg-muted-5 flex justify-center items-center">
-          {svg}
-        </div>
-      )
-      :
-      (
-        <img src={appPhoto} alt="App detail photo" />
-      )
-    }
+      {
+        appPhoto == null || appPhoto == '' ?
+        (
+          <div className="mw-100 mh-100 image-size-detail bg-muted-5 flex justify-center items-center">
+            {svg}
+          </div>
+        )
+        :
+        (
+          <img src={appPhoto} alt="App detail photo" />
+        )
+      }
     </>
   )
 }

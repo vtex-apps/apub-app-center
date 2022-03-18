@@ -1,13 +1,17 @@
 import React, { FC, useEffect, useState } from 'react'
 // import { FormattedMessage } from 'react-intl'
 import { Divider, Layout, PageBlock, PageHeader } from 'vtex.styleguide'
+import './styles/styles.global.css'
 import AppTabs from './components/Detail/AppTabs'
+import Resume from './components/Detail/Resume'
 import { useRuntime } from 'vtex.render-runtime'
 import { AppData } from './typings/appdata'
 import MockedData from './data/mockedData'
 
-import './styles/styles.global.css'
-import Resume from './components/Detail/Resume'
+
+interface Props {
+  params: any
+}
 
 const AppDetail: FC<Props> = ({ params }) => {
   const { navigate } = useRuntime();
@@ -35,12 +39,12 @@ const AppDetail: FC<Props> = ({ params }) => {
       <PageBlock variation="full">
         <div className="flex">
           <Resume
-          photo={appInfo?.photo || ''}
-          version={appInfo?.version || 0}
-          status={appInfo?.status || ''}
-          store={appInfo?.store || []}
-          category={appInfo?.category || []}
-          documentation={appInfo?.documentation || ''}
+            photo={appInfo?.photo || ''}
+            version={appInfo?.version || 0}
+            status={appInfo?.status || ''}
+            store={appInfo?.store || []}
+            category={appInfo?.category || []}
+            documentation={appInfo?.documentation || ''}
           />
           <div
             style={{ flexGrow: 1 }}
@@ -48,26 +52,22 @@ const AppDetail: FC<Props> = ({ params }) => {
             <Divider orientation="vertical" />
           </div>
           <AppTabs
-          name={appInfo?.name || ''}
-          download={appInfo?.download || ''}
-          overview={appInfo?.overview || ''}
-          feature={appInfo?.feature || []}
-          screenshot= {appInfo?.screenshot || ''}
-          workspace= {appInfo?.workspace || ''}
-          video= {appInfo?.video || ''}
-          requirements={appInfo?.requirements || []}
-          tutorial={appInfo?.tutorial || []}
-          assets={appInfo?.assets || []}
-          github= {appInfo?.screenshot || ''}
+            name={appInfo?.name || ''}
+            download={appInfo?.download || ''}
+            overview={appInfo?.overview || ''}
+            feature={appInfo?.feature || []}
+            screenshot= {appInfo?.screenshot || ''}
+            workspace= {appInfo?.workspace || ''}
+            video= {appInfo?.video || ''}
+            requirements={appInfo?.requirements || []}
+            tutorial={appInfo?.tutorial || []}
+            assets={appInfo?.assets || []}
+            github= {appInfo?.screenshot || ''}
           />
         </div>
       </PageBlock>
     </Layout>
   )
-}
-
-interface Props {
-  params: any
 }
 
 export default AppDetail

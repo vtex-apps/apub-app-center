@@ -2,7 +2,12 @@ import React, { useState } from 'react'
 // import { FormattedMessage } from 'react-intl'
 import { Tabs, Tab, Button, Link } from 'vtex.styleguide'
 
-const Check = (<svg className="vtex__icon-check  " width="20" height="20" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" fill="none"><path d="M10.8 4.4L9.4 3L5.4 7L3.4 5L2 6.4L5.4 9.8L10.8 4.4Z" fill="currentColor"></path></svg>);
+const Check = (
+  <svg className="vtex__icon-check" width="20" height="20" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg" fill="none">
+    <path d="M10.8 4.4L9.4 3L5.4 7L3.4 5L2 6.4L5.4 9.8L10.8 4.4Z" fill="currentColor">
+    </path>
+  </svg>
+)
 
 const RenderGetAppButton = ( appStore: string ) => {
   return(
