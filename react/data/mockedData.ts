@@ -33,11 +33,11 @@ const CreateData2 = () => {
   app2.status         = "beta";
   app2.store          = ['io'];
   app2.category       = ['pdp', 'gallery'];
-  app2.description    = "Allows shoppers to select a Whitelabel Seller available in their region, and it filters the product listing results accordingly.";
+  app2.description    = "Filters the product listing results by Whitelabel Seller selected.";
   app2.documentation  = "https://vtex.io/docs/app/vtexarg.product-highlight-by-vtex-segment@0.3.2/";
   app2.download       = "";
   app2.version        = 0;
-  app2.overview       = "Allows shoppers to select a Whitelabel Seller available in their region, and it filters the product listing results accordingly.";
+  app2.overview       = "Allows to select a Whitelabel Seller available in their region, and it filters the product listing results.";
   app2.feature        = ["Es genial", "Es gratis", "Es rápida"];
   app2.screenshot     = "https://user-images.githubusercontent.com/55905671/143295939-7d1b5625-5c57-46ad-a197-ef959db268de.gif";
   app2.workspace      = "Link del workspace";
@@ -58,7 +58,7 @@ const CreateData3 = () => {
   app3.status         = "beta";
   app3.store          = ['legacy', 'io'];
   app3.category       = ['solution'];
-  app3.description    = "This application that exposes two endpoints of massive update of product scores and catalogs.";
+  app3.description    = "Endpoints of massive update of product scores and catalogs.";
   app3.documentation  = "https://vtex.io/docs/app/vtexarg.massive-score-update@3.1.1/";
   app3.download       = "";
   app3.version        = 3;
@@ -83,7 +83,7 @@ const CreateData4 = () => {
   app4.status         = "prod";
   app4.store          = ['legacy', 'io'];
   app4.category       = ['solution'];
-  app4.description    = "Update stock in batches to decrease integration times and requests overhead.";
+  app4.description    = "Endpoints of massive update stock in batches to decrease integration times.";
   app4.documentation  = "https://vtex.io/docs/app/vtexarg.massive-stock-update@2.x/";
   app4.download       = "https://apps.vtex.com/vtexarg-massive-stock-update/p";
   app4.version        = 2;
@@ -108,11 +108,11 @@ const CreateData5 = () => {
   app5.status         = "prod";
   app5.store          = ['io'];
   app5.category       = ['admin', 'pdp'];
-  app5.description    = "Displays a color chart directly on your product page and promptly update its price based on the color composition.";
+  app5.description    = "Displays a color chart on your PDP and updates its price by composition.";
   app5.documentation  = "https://vtex.io/docs/app/vtexarg.tintometric@3.x/";
   app5.download       = "https://apps.vtex.com/vtexarg-tintometric/p";
   app5.version        = 3;
-  app5.overview       = "Displays a color chart directly on your product page and promptly update its price based on the color composition.";
+  app5.overview       = "Displays a color chart on your product page and promptly update its price based on the color composition.";
   app5.feature        = ["Manage color combination for Color Chart for paint stores", "Bulk update SKU prices based on the product color"];
   app5.screenshot     = "https://extensions.vtexassets.com/arquivos/ids/157294/image-fe602f14a5ee47ca9ad7a763dba6faa0.jpg?v=637741542202600000";
   app5.workspace      = "Link del workspace";
@@ -259,7 +259,7 @@ const CreateData11 = () => {
   app11.status         = "beta";
   app11.store          = ['legacy', 'io'];
   app11.category       = ['admin', 'pdp'];
-  app11.description    = "Helps to carry out the necessary integration to comply with the Ley de Gondolas from Argentina.";
+  app11.description    = "Integration to comply with the Ley de Gondolas from Argentina.";
   app11.documentation  = "https://vtex.io/docs/app/vtexarg.admin-ley-gondolas-arg@0.2.0/";
   app11.download       = "";
   app11.version        = 0;
@@ -285,7 +285,7 @@ const CreateData12 = () => {
   app12.status         = "prod";
   app12.store          = ['io'];
   app12.category       = ['solution'];
-  app12.description    = "The VTEX Logger React app will help to make log entries in the VTEX IO Logging Service on React Apps.";
+  app12.description    = "Makes log entries in the VTEX IO Logging Service on React Apps.";
   app12.documentation  = "https://vtex.io/docs/app/vtex.vtex-logger-react@1.0.1/";
   app12.download       = "";
   app12.version        = 1;
@@ -310,7 +310,7 @@ const CreateData13 = () => {
   app13.status         = "prod";
   app13.store          = ['io'];
   app13.category       = ['search'];
-  app13.description    = "Boost your commerce offering quick speech search using google chrome NLP system.";
+  app13.description    = "Speech search using google chrome NLP system.";
   app13.documentation  = "https://developers.vtex.com/vtex-developer-docs/docs/vtexarg-speech-to-text";
   app13.download       = "https://apps.vtex.com/vtexarg-speech-to-text/p";
   app13.version        = 1;
@@ -360,7 +360,7 @@ const CreateData15 = () => {
   app15.status         = "prod";
   app15.store          = ['io'];
   app15.category       = ['solution'];
-  app15.description    = "GraphQL API build in our VTEX IO Platform to use the VTEX Logger with the objetive of be consume through an React Front App.";
+  app15.description    = "GraphQL API to use the VTEX Logger to be consume through an React Front App.";
   app15.documentation  = "https://vtex.io/docs/app/vtex.vtex-logger-graphql@0.2.0/";
   app15.download       = "";
   app15.version        = 0;
@@ -410,7 +410,7 @@ const CreateData17 = () => {
   app17.status         = "beta";
   app17.store          = ['legacy', 'io'];
   app17.category       = ['solution'];
-  app17.description    = "This service allows you to handling the mailing to be able to cancel and generate orders without repeating notifications to the user.";
+  app17.description    = "Cancels and generates orders without repeating notifications to the user.";
   app17.documentation  = "https://vtex.io/docs/app/vtexarg.proxy-mailing-flow@3.0.8/";
   app17.download       = "";
   app17.version        = 3;
@@ -435,7 +435,7 @@ const CreateData18 = () => {
   app18.status         = "beta";
   app18.store          = ['legacy', 'io'];
   app18.category       = ['admin'];
-  app18.description    = "The PedidosYa application allows you to process orders generated on PedidosYa into VTEX OMS.";
+  app18.description    = "Allows you to process orders generated on PedidosYa into VTEX OMS.";
   app18.documentation  = "https://vtex.io/docs/app/vtexarg.pedidosya@2.0.29/";
   app18.download       = "";
   app18.version        = 2;
@@ -460,11 +460,11 @@ const CreateData19 = () => {
   app19.status         = "beta";
   app19.store          = ['legacy', 'io'];
   app19.category       = ['admin'];
-  app19.description    = "Allows you to clone promotions from one environment to another, in architecture master + white labels and marketplaces.";
+  app19.description    = "Clones promotions from one environment to another master + white labels and MKP.";
   app19.documentation  = "https://vtex.io/docs/app/vtexarg.promotion-cloner@4.0.5/";
   app19.download       = "";
   app19.version        = 4;
-  app19.overview       = "Allows you to clone promotions from one environment to another, in architecture master + white labels and marketplaces.";
+  app19.overview       = "Allows to clone promotions from one environment to another, in architecture master + white labels and marketplaces.";
   app19.feature        = ["Es excelente", "Es gratis", "Es rápida"];
   app19.screenshot     = "https://user-images.githubusercontent.com/55905671/139843737-795688e9-c44a-45c5-a32d-3714d2eab2e2.gif";
   app19.workspace      = "Link del workspace";
@@ -485,7 +485,7 @@ const CreateData20 = () => {
   app20.status         = "beta";
   app20.store          = ['legacy', 'io'];
   app20.category       = ['admin'];
-  app20.description    = "Allows you to obtain information about the products of any white label seller. The information will be the name, price, stock and images of the products.";
+  app20.description    = "Allows to obtain information about the products of any white label seller.";
   app20.documentation  = "https://vtex.io/docs/app/vtexarg.catalog-analyzer@2.0.1/";
   app20.download       = "";
   app20.version        = 2;
