@@ -65,7 +65,7 @@ const RenderAppFeatures = ( features: string[] ) => {
   )
 }
 
-const RenderScreenshot = ( screenshot: string ) => {
+const RenderAppScreenshot = ( screenshot: string ) => {
   return(
     <>
     {
@@ -87,7 +87,7 @@ const RenderScreenshot = ( screenshot: string ) => {
   )
 }
 
-const RenderWorkspace = ( workspace: string ) => {
+const RenderAppWorkspace = ( workspace: string ) => {
   return(
     <>
     {
@@ -111,7 +111,7 @@ const RenderWorkspace = ( workspace: string ) => {
   )
 }
 
-const RenderVideo = ( video: string ) => {
+const RenderAppVideo = ( video: string ) => {
   return(
     <>
     {
@@ -137,29 +137,41 @@ const RenderVideo = ( video: string ) => {
 
 const RenderAppRequirements = ( requirements: string[] ) => {
   return(
-    (requirements.map(requirement =>{
-      return(
-        <li>
-          <p className="f6 gray ma0">
-          {requirement}
-          </p>
-        </li>
-      )
-    }))
+    <>
+      <p className="f9 mt8 mb5">Requisitos</p>
+      <ul>
+        {(requirements.map(requirement =>{
+          return(
+            <li>
+              <p className="f6 gray ma0">
+              {requirement}
+              </p>
+            </li>
+          )
+        }))}
+      </ul>
+    </>
   )
 }
 
 const RenderAppTutorial = ( tutorials: string[] ) => {
   return(
-    (tutorials.map(tutorial =>{
-      return(
-        <li>
-          <p className="f6 ma0">
-          {tutorial}
-          </p>
-        </li>
-      )
-    }))
+    <>
+      <p className="f9 mt8 mb5">Paso a Paso</p>
+      <ol>
+        {
+        (tutorials.map(tutorial =>{
+          return(
+            <li>
+              <p className="f6 ma0">
+              {tutorial}
+              </p>
+            </li>
+          )
+        }))
+        }
+      </ol>
+    </>
   )
 }
 
@@ -200,7 +212,7 @@ const RenderAppAssets = ( assets: string[] ) => {
   )
 }
 
-const RenderHelpLinks = ( github: string ) => {
+const RenderAppHelpLinks = ( github: string ) => {
   return(
     <>
     <p className="f9 mt8 mb5">Links de Ayuda</p>
@@ -253,41 +265,27 @@ const AppTabs = (props: {
           label="Resumen"
           active={currentTab == 1}
           onClick={() => setCurrentTab(1)}>
-
-          {RenderAppOverview(props.overview)}
-          {RenderAppFeatures(props.feature)}
-          {RenderScreenshot(props.screenshot)}
-
+            {RenderAppOverview(props.overview)}
+            {RenderAppFeatures(props.feature)}
+            {RenderAppScreenshot(props.screenshot)}
         </Tab>
 
         <Tab
           label="Demo"
           active={currentTab === 2}
           onClick={() => setCurrentTab(2)}>
-
-          {RenderWorkspace(props.workspace)}
-          {RenderVideo(props.video)}
-
+            {RenderAppWorkspace(props.workspace)}
+            {RenderAppVideo(props.video)}
         </Tab>
 
         <Tab
           label="Tutorial"
           active={currentTab === 3}
           onClick={() => setCurrentTab(3)}>
-
-          <p className="f9 mt8 mb5">Requisitos</p>
-          <ul>
             {RenderAppRequirements(props.requirements)}
-          </ul>
-
-          <p className="f9 mt8 mb5">Paso a Paso</p>
-
-          <ol>
             {RenderAppTutorial(props.requirements)}
-          </ol>
-
-          {RenderAppAssets(props.assets)}
-          {RenderHelpLinks(props.github)}
+            {RenderAppAssets(props.assets)}
+            {RenderAppHelpLinks(props.github)}
         </Tab>
       </Tabs>
 

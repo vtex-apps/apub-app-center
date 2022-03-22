@@ -151,9 +151,8 @@ const CategorySelectorObject = ({ value, onChange }: any) => {
     pdp: true,
     admin: true,
     search: true,
+    service: true,
     gallery: true,
-    service:true,
-    solution: true,
     checkout: true,
     ...(value || {}),
   }
