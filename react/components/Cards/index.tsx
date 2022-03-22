@@ -226,7 +226,6 @@ const StatusSelectorObject = ({ value, onChange }: any) => {
   const initialValue = {
     prod: true,
     beta: true,
-    idea: true,
     ...(value || {}),
   }
   const toggleValueByKey = (key: any) => {
