@@ -30,18 +30,58 @@ const RenderGetAppButton = ( appStore: string ) => {
   )
 }
 
+const RenderAppOverview = ( overview: string ) => {
+  return(
+    <>
+      <p className="f9 mt8 mb5">Overview</p>
+      <p className="f6 gray ma0">
+        {overview}
+      </p>
+    </>
+  )
+}
+
 const RenderAppFeatures = ( features: string[] ) => {
   return(
-    (features.map(feature =>{
-      return(
-        <div className="gray flex ma0">
-          {Check}
-          <p className="f6 gray ma2">
-            {feature}
-          </p>
-        </div>
+    <>
+    <p className="f9 mt8 mb5">Features</p>
+    <div className='ph6 pv3'>
+      {
+        (features.map(feature =>{
+          return(
+            <>
+                <div className="gray flex ma0">
+                  {Check}
+                  <p className="f6 gray ma2">
+                    {feature}
+                  </p>
+                </div>
+            </>
+          )
+        }))
+      }
+    </div>
+    </>
+  )
+}
+
+const RenderScreenshot = ( screenshot: string ) => {
+  return(
+    <>
+    {
+      screenshot == null || screenshot == '' ?
+      (
+        <></>
       )
-    }))
+      :
+      (
+        <>
+          <p className="f9 mt8 mb5">Screenshots</p>
+          <img src={screenshot} alt="App detail photo" />
+        </>
+      )
+    }
+    </>
   )
 }
 
@@ -124,21 +164,9 @@ const AppTabs = (props: {
           active={currentTab == 1}
           onClick={() => setCurrentTab(1)}>
 
-          <p className="f9 mt8 mb5">Overview</p>
-          <p className="f6 gray ma0">
-            {props.overview}
-          </p>
-
-          <p className="f9 mt8 mb5">Features</p>
-          <div className='ph6 pv3'>
-
-            {RenderAppFeatures(props.feature)}
-
-          </div>
-
-
-          <p className="f9 mt8 mb5">Screenshots</p>
-          <img src={props.screenshot} alt="App detail photo" />
+          {RenderAppOverview(props.overview)}
+          {RenderAppFeatures(props.feature)}
+          {RenderScreenshot(props.screenshot)}
 
         </Tab>
 
@@ -146,6 +174,7 @@ const AppTabs = (props: {
           label="Demo"
           active={currentTab === 2}
           onClick={() => setCurrentTab(2)}>
+
           <p className="f9 mt8 mb5">Entorno</p>
           <p className="f6 gray ma0">
             {props.workspace}
@@ -154,6 +183,7 @@ const AppTabs = (props: {
           <p className="f6 gray ma0">
             {props.video}
           </p>
+
         </Tab>
 
         <Tab

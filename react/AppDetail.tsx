@@ -62,7 +62,7 @@ const AppDetail: FC<Props> = ({ params }) => {
             requirements={appInfo?.requirements || []}
             tutorial={appInfo?.tutorial || []}
             assets={appInfo?.assets || []}
-            github= {appInfo?.screenshot || ''}
+            github= {appInfo?.github || ''}
           />
         </div>
       </PageBlock>
