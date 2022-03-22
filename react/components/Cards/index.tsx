@@ -152,6 +152,7 @@ const CategorySelectorObject = ({ value, onChange }: any) => {
     admin: true,
     search: true,
     gallery: true,
+    service:true,
     solution: true,
     checkout: true,
     ...(value || {}),

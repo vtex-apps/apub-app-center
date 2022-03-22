@@ -71,13 +71,63 @@ const RenderScreenshot = ( screenshot: string ) => {
     {
       screenshot == null || screenshot == '' ?
       (
-        <></>
+        <>
+          <p className="f6 mt8 mb5 gray ma0">No hay screenshot disponible</p>
+        </>
       )
       :
       (
         <>
           <p className="f9 mt8 mb5">Screenshots</p>
           <img src={screenshot} alt="App detail photo" />
+        </>
+      )
+    }
+    </>
+  )
+}
+
+const RenderWorkspace = ( workspace: string ) => {
+  return(
+    <>
+    {
+      workspace == null || workspace == '' ?
+      (
+        <>
+          <p className="f6 mt8 mb5 gray ma0">No requiere un workspace especifico</p>
+        </>
+      )
+      :
+      (
+        <>
+          <p className="f9 mt8 mb5">Entorno</p>
+          <p className="f6 gray ma0">
+            <Link href={workspace}>{workspace}</Link>
+          </p>
+        </>
+      )
+    }
+    </>
+  )
+}
+
+const RenderVideo = ( video: string ) => {
+  return(
+    <>
+    {
+      video == null || video == '' ?
+      (
+        <>
+          <p className="f6 mt8 mb5 gray ma0">No hay video disponible</p>
+        </>
+      )
+      :
+      (
+        <>
+          <p className="f9 mt8 mb5">Video</p>
+          <p className="f6 gray ma0">
+            {video}
+          </p>
         </>
       )
     }
@@ -115,18 +165,59 @@ const RenderAppTutorial = ( tutorials: string[] ) => {
 
 const RenderAppAssets = ( assets: string[] ) => {
   return(
-    (assets.map(asset =>{
-      return(
-        <p className="f6 gray ma0">
-          <Link
-            href=""
-            target="_blank"
-            mediumWeigth>
-            {asset}
-          </Link>
-        </p>
+    <>
+    {
+      assets.length == 0 ?
+      (
+        <>
+          <p className="f6  mt8 mb5 gray ma0">No es necesario utilizar assets</p>
+        </>
       )
-    }))
+      :
+      (
+        <>
+        <p className="f9 mt8 mb5">Descargar Assets</p>
+        <div>
+          {
+            (assets.map(asset =>{
+              return(
+                <p className="f6 gray ma0">
+                  <Link
+                    href=""
+                    target="_blank"
+                    mediumWeigth>
+                    {asset}
+                  </Link>
+                </p>
+              )
+            }))
+          }
+        </div>
+        </>
+      )
+    }
+    </>
+  )
+}
+
+const RenderHelpLinks = ( github: string ) => {
+  return(
+    <>
+    <p className="f9 mt8 mb5">Links de Ayuda</p>
+    <Link
+      href="https://vtex.slack.com/archives/C017JF73XCH"
+      target="_blank"
+      mediumWeigth>
+      Canal de Slack APUB First Party Apps
+    </Link>
+    <br></br>
+    <Link
+      href={github}
+      target="_blank"
+      mediumWeigth>
+      Repo de Github
+    </Link>
+    </>
   )
 }
 
@@ -159,7 +250,6 @@ const AppTabs = (props: {
 
       <Tabs fullWidth>
         <Tab
-
           label="Resumen"
           active={currentTab == 1}
           onClick={() => setCurrentTab(1)}>
@@ -175,14 +265,8 @@ const AppTabs = (props: {
           active={currentTab === 2}
           onClick={() => setCurrentTab(2)}>
 
-          <p className="f9 mt8 mb5">Entorno</p>
-          <p className="f6 gray ma0">
-            {props.workspace}
-          </p>
-          <p className="f9 mt8 mb5">Video</p>
-          <p className="f6 gray ma0">
-            {props.video}
-          </p>
+          {RenderWorkspace(props.workspace)}
+          {RenderVideo(props.video)}
 
         </Tab>
 
@@ -190,6 +274,7 @@ const AppTabs = (props: {
           label="Tutorial"
           active={currentTab === 3}
           onClick={() => setCurrentTab(3)}>
+
           <p className="f9 mt8 mb5">Requisitos</p>
           <ul>
             {RenderAppRequirements(props.requirements)}
@@ -201,29 +286,8 @@ const AppTabs = (props: {
             {RenderAppTutorial(props.requirements)}
           </ol>
 
-          <p className="f9 mt8 mb5">Descargar Assets</p>
-
-          <div>
-            {RenderAppAssets(props.assets)}
-          </div>
-
-          <p className="f9 mt8 mb5">Links de Ayuda</p>
-          <p className="f6 gray ma0">
-            <Link
-              href="https://vtex.slack.com/archives/C017JF73XCH"
-              target="_blank"
-              mediumWeigth>
-              Canal de Slack APUB First Party Apps
-            </Link>
-          </p>
-          <p className="f6 gray ma0">
-            <Link
-              href={props.github}
-              target="_blank"
-              mediumWeigth>
-              Repo de Github
-            </Link>
-          </p>
+          {RenderAppAssets(props.assets)}
+          {RenderHelpLinks(props.github)}
         </Tab>
       </Tabs>
 

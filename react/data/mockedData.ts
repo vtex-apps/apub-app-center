@@ -7,7 +7,7 @@ const CreateData1 = () => {
   app1.photo          = "https://extensions.vtexassets.com/arquivos/ids/157174/image-b925968a706f46f29cc8ed06633a6f95.jpg?v=637680032654000000";
   app1.status         = "prod";
   app1.store          = ['legacy', 'io'];
-  app1.category       = ['solution'];
+  app1.category       = ['service'];
   app1.description    = "This application allows you to update SKU prices in batches.";
   app1.documentation  = "https://vtex.io/docs/app/vtexarg.massive-price-update@1.x";
   app1.download       = "https://apps.vtex.com/vtexarg-massive-price-update/p";
@@ -15,11 +15,11 @@ const CreateData1 = () => {
   app1.overview       = "This application allows you to update SKU prices in batches.";
   app1.feature        = ["Reduction of integration times", "Reduction of overhead for applications", "Simplicity"];
   app1.screenshot     = "https://extensions.vtexassets.com/arquivos/ids/157175/image-25412d34ae77460fa7a7b141b7a00dd6.jpg?v=637680032659230000";
-  app1.workspace      = "Link del workspace";
-  app1.video          = "Preview del video";
+  app1.workspace      = "";
+  app1.video          = "";
   app1.requirements   = ["Whitelabel", "Search v1", "Installar la app"];
   app1.tutorial       = ["Instalar", "Descargar", "Probar, leer documentación"];
-  app1.assets         = ["Imagenes", "Videos", "Styles"];
+  app1.assets         = [];
   app1.github         = "https://github.com/vtex-apps/massive-price-update";
 
   return app1;
@@ -57,7 +57,7 @@ const CreateData3 = () => {
   app3.photo          = "https://dev--vtexarg.myvtex.com/_v/public/assets/v1/published/vtexarg.massive-score-update@3.1.1/public/metadata/images/icon.png";
   app3.status         = "beta";
   app3.store          = ['legacy', 'io'];
-  app3.category       = ['solution'];
+  app3.category       = ['service'];
   app3.description    = "Endpoints of massive update of product scores and catalogs.";
   app3.documentation  = "https://vtex.io/docs/app/vtexarg.massive-score-update@3.1.1/";
   app3.download       = "";
@@ -65,11 +65,11 @@ const CreateData3 = () => {
   app3.overview       = "This application that exposes two endpoints of massive update of product scores and catalogs.";
   app3.feature        = ["Es maravillosa", "Es gratis", "Es rápida"];
   app3.screenshot     = "https://user-images.githubusercontent.com/33711188/132861772-a09ddf58-c326-4d43-bd57-0f4c5157e681.png";
-  app3.workspace      = "Link del workspace";
-  app3.video          = "Preview del video";
+  app3.workspace      = "";
+  app3.video          = "";
   app3.requirements   = ["Whitelabel", "Search v3", "Installar la app"];
   app3.tutorial       = ["Instalar", "Descargar", "Probar, leer documentación"];
-  app3.assets         = ["Imagenes", "Videos", "Styles"];
+  app3.assets         = [];
   app3.github         = "https://github.com/vtex-apps/massive-score-update";
 
   return app3;
@@ -82,7 +82,7 @@ const CreateData4 = () => {
   app4.photo          = "https://extensions.vtexassets.com/arquivos/ids/157172-800-auto?v=637678529445200000&width=800&height=auto&aspect=true";
   app4.status         = "prod";
   app4.store          = ['legacy', 'io'];
-  app4.category       = ['solution'];
+  app4.category       = ['service'];
   app4.description    = "Endpoints of massive update stock in batches to decrease integration times.";
   app4.documentation  = "https://vtex.io/docs/app/vtexarg.massive-stock-update@2.x/";
   app4.download       = "https://apps.vtex.com/vtexarg-massive-stock-update/p";
@@ -90,11 +90,11 @@ const CreateData4 = () => {
   app4.overview       = "Update stock in batches to decrease integration times and requests overhead.";
   app4.feature        = ["Massive inventory stock update service through SKU and warehouseId"];
   app4.screenshot     = "https://extensions.vtexassets.com/arquivos/ids/157173/image-0b87b2a10d504f7685ecb6f561bd93cf.jpg?v=637678529456730000";
-  app4.workspace      = "Link del workspace";
-  app4.video          = "Preview del video";
+  app4.workspace      = "";
+  app4.video          = "";
   app4.requirements   = ["Whitelabel", "Search v4", "Installar la app"];
   app4.tutorial       = ["Instalar", "Descargar", "Probar, leer documentación"];
-  app4.assets         = ["Imagenes", "Videos", "Styles"];
+  app4.assets         = [];
   app4.github         = "https://github.com/vtex-apps/massive-stock-update";
 
   return app4;
@@ -284,7 +284,7 @@ const CreateData12 = () => {
   app12.photo          = "";
   app12.status         = "prod";
   app12.store          = ['io'];
-  app12.category       = ['solution'];
+  app12.category       = ['service'];
   app12.description    = "Makes log entries in the VTEX IO Logging Service on React Apps.";
   app12.documentation  = "https://vtex.io/docs/app/vtex.vtex-logger-react@1.0.1/";
   app12.download       = "";
@@ -292,11 +292,11 @@ const CreateData12 = () => {
   app12.overview       = "The VTEX Logger React app will help to make log entries in the VTEX IO Logging Service on React Apps.";
   app12.feature        = ["Es excelente", "Es gratis", "Es rápida"];
   app12.screenshot     = "https://extensions.vtexassets.com/arquivos/ids/157316/image-5516ab6fdd624a748e299584e917e082.jpg?v=637771685440800000";
-  app12.workspace      = "Link del workspace";
-  app12.video          = "Preview del video";
+  app12.workspace      = "";
+  app12.video          = "";
   app12.requirements   = ["Whitelabel", "Search v12", "Installar la app"];
   app12.tutorial       = ["Instalar", "Descargar", "Probar, leer documentación"];
-  app12.assets         = ["Imagenes", "Videos", "Styles"];
+  app12.assets         = [];
   app12.github         = "https://github.com/vtex-apps/vtex-logger-react";
 
   return app12;
@@ -321,7 +321,7 @@ const CreateData13 = () => {
   app13.video          = "Preview del video";
   app13.requirements   = ["Whitelabel", "Search v13", "Installar la app"];
   app13.tutorial       = ["Instalar", "Descargar", "Probar, leer documentación"];
-  app13.assets         = ["Imagenes", "Videos", "Styles"];
+  app13.assets         = [];
   app13.github         = "https://github.com/vtex-apps/speech-to-text";
 
   return app13;
@@ -359,19 +359,19 @@ const CreateData15 = () => {
   app15.photo          = "";
   app15.status         = "prod";
   app15.store          = ['io'];
-  app15.category       = ['solution'];
+  app15.category       = ['service'];
   app15.description    = "GraphQL API to use the VTEX Logger to be consume through an React Front App.";
   app15.documentation  = "https://vtex.io/docs/app/vtex.vtex-logger-graphql@0.2.0/";
   app15.download       = "";
   app15.version        = 0;
   app15.overview       = "GraphQL API build in our VTEX IO Platform to use the VTEX Logger with the objetive of be consume through an React Front App.";
   app15.feature        = ["Es excelente", "Es gratis", "Es rápida"];
-  app15.screenshot     = "https://extensions.vtexassets.com/arquivos/ids/157316/image-5516ab6fdd624a748e299584e917e082.jpg?v=637771685440800000";
-  app15.workspace      = "Link del workspace";
-  app15.video          = "Preview del video";
+  app15.screenshot     = "";
+  app15.workspace      = "";
+  app15.video          = "";
   app15.requirements   = ["Whitelabel", "Search v15", "Installar la app"];
   app15.tutorial       = ["Instalar", "Descargar", "Probar, leer documentación"];
-  app15.assets         = ["Imagenes", "Videos", "Styles"];
+  app15.assets         = [];
   app15.github         = "https://github.com/vtex-apps/vtex-logger-graphql";
 
   return app15;
@@ -409,19 +409,19 @@ const CreateData17 = () => {
   app17.photo          = "";
   app17.status         = "beta";
   app17.store          = ['legacy', 'io'];
-  app17.category       = ['solution'];
+  app17.category       = ['service'];
   app17.description    = "Cancels and generates orders without repeating notifications to the user.";
   app17.documentation  = "https://vtex.io/docs/app/vtexarg.proxy-mailing-flow@3.0.8/";
   app17.download       = "";
   app17.version        = 3;
   app17.overview       = "This service allows you to handling the mailing to be able to cancel and generate orders without repeating notifications to the user.";
   app17.feature        = ["Es excelente", "Es gratis", "Es rápida"];
-  app17.screenshot     = "https://extensions.vtexassets.com/arquivos/ids/157316/image-5516ab6fdd624a748e299584e917e082.jpg?v=637771685440800000";
-  app17.workspace      = "Link del workspace";
-  app17.video          = "Preview del video";
+  app17.screenshot     = "";
+  app17.workspace      = "";
+  app17.video          = "";
   app17.requirements   = ["Whitelabel", "Search v15", "Installar la app"];
   app17.tutorial       = ["Instalar", "Descargar", "Probar, leer documentación"];
-  app17.assets         = ["Imagenes", "Videos", "Styles"];
+  app17.assets         = [];
   app17.github         = "https://github.com/vtex-apps/proxy-mailing-flow";
 
   return app17;
@@ -509,19 +509,19 @@ const CreateData21 = () => {
   app21.photo          = "";
   app21.status         = "beta";
   app21.store          = ['legacy', 'io'];
-  app21.category       = ['solution'];
+  app21.category       = ['service'];
   app21.description    = "This app provides a public POST endpoint using file-manager.";
   app21.documentation  = "https://vtex.io/docs/app/vtexarg.file-manager-rest@1.0.2/";
   app21.download       = "";
   app21.version        = 1;
   app21.overview       = "This app provides a public POST endpoint using file-manager.";
   app21.feature        = ["Es excelente", "Es gratis", "Es rápida"];
-  app21.screenshot     = "https://user-images.githubusercontent.com/33711188/134082316-a2ca8998-86fc-4388-9f6e-27a1e62621e8.png";
-  app21.workspace      = "Link del workspace";
-  app21.video          = "Preview del video";
+  app21.screenshot     = "";
+  app21.workspace      = "";
+  app21.video          = "";
   app21.requirements   = ["Whitelabel", "Search v15", "Installar la app"];
   app21.tutorial       = ["Instalar", "Descargar", "Probar, leer documentación"];
-  app21.assets         = ["Imagenes", "Videos", "Styles"];
+  app21.assets         = [];
   app21.github         = "https://github.com/vtex-apps/file-manager-rest";
 
   return app21;
@@ -534,19 +534,19 @@ const CreateData22 = () => {
   app22.photo          = "";
   app22.status         = "beta";
   app22.store          = ['legacy', 'io'];
-  app22.category       = ['solution'];
+  app22.category       = ['service'];
   app22.description    = "This app provides a public POST endpoint using file-manager.";
   app22.documentation  = "https://vtex.io/docs/app/vtexarg.file-manager-rest@1.0.2/";
   app22.download       = "";
   app22.version        = 1;
   app22.overview       = "This app provides a public POST endpoint using file-manager.";
   app22.feature        = ["Es excelente", "Es gratis", "Es rápida"];
-  app22.screenshot     = "https://user-images.githubusercontent.com/33711188/134082316-a2ca8998-86fc-4388-9f6e-27a1e62621e8.png";
-  app22.workspace      = "Link del workspace";
-  app22.video          = "Preview del video";
+  app22.screenshot     = "";
+  app22.workspace      = "";
+  app22.video          = "";
   app22.requirements   = ["Whitelabel", "Search v15", "Installar la app"];
   app22.tutorial       = ["Instalar", "Descargar", "Probar, leer documentación"];
-  app22.assets         = ["Imagenes", "Videos", "Styles"];
+  app22.assets         = [""];
   app22.github         = "https://github.com/vtex-apps/custom-stock-export";
 
   return app22;
