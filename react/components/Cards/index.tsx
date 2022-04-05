@@ -1,40 +1,38 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
+import { FilterBar, Checkbox } from 'vtex.styleguide'
+
 import { AppData } from '../../typings/appdata'
 import AppCard from './AppCard'
 import Header from './Header'
-import {
-  FilterBar,
-  Checkbox
-} from 'vtex.styleguide'
 import MockedData from '../../data/mockedData'
 import LoadingSpinner from './LoadingSpinner'
 
 interface CardFilter {
-  category: string[],
-  store: string[],
+  category: string[]
+  store: string[]
   status: string[]
 }
 
-let auxCardList: any[] = [];
-let cardFilter: CardFilter = { category: [], store: [], status: []};
+let auxCardList: any[] = []
+const cardFilter: CardFilter = { category: [], store: [], status: [] }
 
 const SetCardData = (setCardsList: any, setLoadingState: any) => {
-  auxCardList = MockedData.GetData();
-  setCardsList(auxCardList);
-  setLoadingState(false);
+  auxCardList = MockedData.GetData()
+  setCardsList(auxCardList)
+  setLoadingState(false)
 }
 
-const FilterCardData = (statementList : any) => {
-  let cardsId: any[] = [];
-  FillCardFilter(statementList);
-  let listToFilter = auxCardList;
+const FilterCardData = (statementList: any) => {
+  let cardsId: any[] = []
+  FillCardFilter(statementList)
+  let listToFilter = auxCardList
 
-  if(cardFilter.category.length > 0){
+  if (cardFilter.category.length > 0) {
     listToFilter.forEach((c: AppData) => {
-      cardFilter.category.forEach(cat => {
-        let hasCategory = c.category.includes(cat);
-        if(hasCategory){
-          if(!cardsId.includes(c.id)){
+      cardFilter.category.forEach((cat) => {
+        const hasCategory = c.category.includes(cat)
+        if (hasCategory) {
+          if (!cardsId.includes(c.id)) {
             cardsId.push(c.id)
           }
         }
@@ -42,18 +40,18 @@ const FilterCardData = (statementList : any) => {
     })
   }
 
-  if(cardsId.length > 0){
-    listToFilter = listToFilter.filter(c => cardsId.includes(c.id));
+  if (cardsId.length > 0) {
+    listToFilter = listToFilter.filter((c) => cardsId.includes(c.id))
 
-    cardsId = [];
+    cardsId = []
   }
 
-  if(cardFilter.store.length > 0){
+  if (cardFilter.store.length > 0) {
     listToFilter.forEach((c: AppData) => {
-      cardFilter.store.forEach(st => {
-        let hasStore = c.store.includes(st);
-        if(hasStore){
-          if(!cardsId.includes(c.id)){
+      cardFilter.store.forEach((st) => {
+        const hasStore = c.store.includes(st)
+        if (hasStore) {
+          if (!cardsId.includes(c.id)) {
             cardsId.push(c.id)
           }
         }
@@ -61,18 +59,18 @@ const FilterCardData = (statementList : any) => {
     })
   }
 
-  if(cardsId.length > 0){
-    listToFilter = listToFilter.filter(c => cardsId.includes(c.id));
+  if (cardsId.length > 0) {
+    listToFilter = listToFilter.filter((c) => cardsId.includes(c.id))
 
-    cardsId = [];
+    cardsId = []
   }
 
-  if(cardFilter.status.length > 0){
+  if (cardFilter.status.length > 0) {
     listToFilter.forEach((c: AppData) => {
-      cardFilter.status.forEach(sta => {
-        let hasStatus = c.status.includes(sta);
-        if(hasStatus){
-          if(!cardsId.includes(c.id)){
+      cardFilter.status.forEach((sta) => {
+        const hasStatus = c.status.includes(sta)
+        if (hasStatus) {
+          if (!cardsId.includes(c.id)) {
             cardsId.push(c.id)
           }
         }
@@ -80,70 +78,68 @@ const FilterCardData = (statementList : any) => {
     })
   }
 
-  if(cardsId.length > 0){
-    listToFilter = listToFilter.filter(c => cardsId.includes(c.id));
+  if (cardsId.length > 0) {
+    listToFilter = listToFilter.filter((c) => cardsId.includes(c.id))
 
-    cardsId = [];
+    cardsId = []
   }
 
-  return listToFilter;
+  return listToFilter
 }
 
 const FillCardFilter = (statementList: any[]) => {
-  statementList.forEach(s => {
-    let filteredStatements = GetSelectedStatements(s.object);
-    let statements = ConvertStatementsToStringArray(s.object);
+  statementList.forEach((s) => {
+    const filteredStatements = GetSelectedStatements(s.object)
+    const statements = ConvertStatementsToStringArray(s.object)
 
-    let isCategory = IsCategoryFilter(statements);
-    let isStore = IsStoreFilter(statements);
-    let isStatus = IsStatusFilter(statements);
+    const isCategory = IsCategoryFilter(statements)
+    const isStore = IsStoreFilter(statements)
+    const isStatus = IsStatusFilter(statements)
 
-    if(isCategory){
-      cardFilter.category = filteredStatements;
+    if (isCategory) {
+      cardFilter.category = filteredStatements
     }
 
-    if(isStore){
-      cardFilter.store = filteredStatements;
+    if (isStore) {
+      cardFilter.store = filteredStatements
     }
 
-    if(isStatus){
-      cardFilter.status = filteredStatements;
+    if (isStatus) {
+      cardFilter.status = filteredStatements
     }
   })
-
-  console.log(cardFilter);
 }
 
 const IsCategoryFilter = (statementList: string[]) => {
-  return statementList.includes("pdp");
+  return statementList.includes('pdp')
 }
 
 const IsStoreFilter = (statementList: string[]) => {
-  return statementList.includes("legacy");
+  return statementList.includes('legacy')
 }
 
 const IsStatusFilter = (statementList: string[]) => {
-  return statementList.includes("prod");
+  return statementList.includes('prod')
 }
 
 const ConvertStatementsToStringArray = (statements: any) => {
-  let keys = Object.keys(statements);
+  const keys = Object.keys(statements)
 
-  return keys;
+  return keys
 }
 
 const GetSelectedStatements = (statements: any) => {
-  let keys = Object.keys(statements);
-  let values = Object.values(statements);
-  let filteredStatements = [];
+  const keys = Object.keys(statements)
+  const values = Object.values(statements)
+  const filteredStatements: string[] = []
 
-  for(var i = 0; i < keys.length; i++){
-    if(values[i] == true){
-      filteredStatements.push(keys[i]);
+  for (let i = 0; i < keys.length; i++) {
+    if (values[i] == true) {
+      filteredStatements.push(keys[i])
     }
   }
 
-  return filteredStatements;
+  return filteredStatements
 }
 
 const CategorySelectorObject = ({ value, onChange }: any) => {
@@ -259,179 +255,192 @@ const StatusSelectorObject = ({ value, onChange }: any) => {
 }
 
 const RenderCardList = (filterCardsList: any[]) => {
-  return(
-    filterCardsList &&
+  return (
+    filterCardsList && (
       <div className="flex flex-wrap">
         {}
         {filterCardsList.map((card) => {
-          return(<AppCard
-            key={card.id}
-            id={card.id}
-            name={card.name}
-            photo={card.photo}
-            status={card.status}
-            store={card.store}
-            category={card.category}
-            description={card.description}
-            documentation={card.documentation}
-            download={card.download}
-            version={card.version}
-            overview={card.overview}
-            feature={card.feature}
-            screenshot={card.screenshot}
-            workspace={card.workspace}
-            video={card.video}
-            requirements={card.requirements}
-            tutorial={card.tutorial}
-            assets={card.assets}
-            github={card.github}
-            />)
+          return (
+            <AppCard
+              key={card.id}
+              id={card.id}
+              name={card.name}
+              photo={card.photo}
+              status={card.status}
+              store={card.store}
+              category={card.category}
+              description={card.description}
+              documentation={card.documentation}
+              download={card.download}
+              version={card.version}
+              overview={card.overview}
+              feature={card.feature}
+              screenshot={card.screenshot}
+              workspace={card.workspace}
+              video={card.video}
+              requirements={card.requirements}
+              tutorial={card.tutorial}
+              assets={card.assets}
+              github={card.github}
+            />
+          )
         })}
-    </div>
-  );
+      </div>
+    )
+  )
 }
 
 const LoadingCards = () => {
-  return(
-    <LoadingSpinner/>
-  );
+  return <LoadingSpinner />
 }
 
 export default function Cards() {
-
-  const [cardsList, setCardsList]= useState<AppData[]>([])
+  const [cardsList, setCardsList] = useState<AppData[]>([])
   useEffect(() => {
     if (cardsList.length === 0) {
-      SetCardData(setCardsList, setLoadingState);
-    } else {
-      console.log("Salgo del if que renderiza cards al principio");
+      SetCardData(setCardsList, setLoadingState)
     }
   }, [])
 
-  const [statementsList, setStatementsList] = useState();
+  const [statementsList, setStatementsList] = useState([])
   useEffect(() => {
     if (statementsList) {
-      let list = FilterCardData(statementsList);
-      setFilterCardsList(list);
-    } else {
-      console.log("Salgo del if que filtra las cards cuando hay filtros");
+      const list = FilterCardData(statementsList)
+      setFilterCardsList(list)
     }
 
-    if (cardsList.length > 0 && !statementsList){
-      setFilterCardsList(cardsList);
+    if (cardsList.length > 0 && !statementsList) {
+      setFilterCardsList(cardsList)
     } else {
-      console.log("Salgo cuando no hay filtros y la lista no esta vacia");
+
+
+      if(statementsList && statementsList.length == 0){
+        setFilterCardsList(cardsList)
+      }
     }
   }, [statementsList, cardsList])
 
-  const [isLoading, setLoadingState] = useState<boolean>(true);
+  const [isLoading, setLoadingState] = useState<boolean>(true)
 
-  const [filterCardsList, setFilterCardsList] = useState<AppData[]>();
+  const [filterCardsList, setFilterCardsList] = useState<AppData[]>()
 
-  const RenderCards = isLoading ? LoadingCards() : RenderCardList(filterCardsList || []);
+  const RenderCards = isLoading
+    ? LoadingCards()
+    : RenderCardList(filterCardsList ?? [])
 
   return (
     <>
-      <Header text="Filtros"/>
-        <div className="ma3 pa3 mb2 ba br2 b--muted-4">
-          <FilterBar
-            alwaysVisibleFilters={['categoria', 'tienda', 'status']}
-            statements={statementsList}
-            onChangeStatements={(statement: any) => setStatementsList(statement)}
-            clearAllFiltersButtonLabel="Limpiar filtros"
-            options={{
-              categoria: {
-                label: 'Categoria',
-                renderFilterLabel: (st: any) => {
-                  if (!st || !st.object) {
-                    // you should treat empty object cases only for alwaysVisibleFilters
-                    return 'Todas'
-                  }
-                  const keys = st.object ? Object.keys(st.object) : []
-                  const isAllTrue = !keys.some(key => !st.object[key])
-                  const isAllFalse = !keys.some(key => st.object[key])
-                  const trueKeys = keys.filter(key => st.object[key])
-                  let trueKeysLabel = ''
-                  trueKeys.forEach((key, index) => {
-                    trueKeysLabel += `${key}${
-                      index === trueKeys.length - 1 ? '' : ', '
-                    }`
-                  })
-                  return `${
-                    isAllTrue ? 'Todas' : isAllFalse ? 'Ninguna' : `${trueKeysLabel}`
+      <Header text="Filtros" />
+      <div className="ma3 pa3 mb2 ba br2 b--muted-4">
+        <FilterBar
+          alwaysVisibleFilters={['categoria', 'tienda', 'status']}
+          statements={statementsList}
+          onChangeStatements={(statement: any) => setStatementsList(statement)}
+          clearAllFiltersButtonLabel="Limpiar filtros"
+          options={{
+            categoria: {
+              label: 'Categoria',
+              renderFilterLabel: (st: any) => {
+                if (!st || !st.object) {
+                  // you should treat empty object cases only for alwaysVisibleFilters
+                  return 'Todas'
+                }
+                const keys = st.object ? Object.keys(st.object) : []
+                const isAllTrue = !keys.some((key) => !st.object[key])
+                const isAllFalse = !keys.some((key) => st.object[key])
+                const trueKeys = keys.filter((key) => st.object[key])
+                let trueKeysLabel = ''
+                trueKeys.forEach((key, index) => {
+                  trueKeysLabel += `${key}${
+                    index === trueKeys.length - 1 ? '' : ', '
                   }`
-                },
-                verbs: [
-                  {
-                    value: 'includes',
-                    object: (props: any) => <CategorySelectorObject {...props} />,
-                  },
-                ],
+                })
+                return `${
+                  isAllTrue
+                    ? 'Todas'
+                    : isAllFalse
+                    ? 'Ninguna'
+                    : `${trueKeysLabel}`
+                }`
               },
+              verbs: [
+                {
+                  value: 'includes',
+                  object: (props: any) => <CategorySelectorObject {...props} />,
+                },
+              ],
+            },
 
-              tienda: {
-                label: 'Tienda',
-                renderFilterLabel: (st: any) => {
-                  if (!st || !st.object) {
-                    // you should treat empty object cases only for alwaysVisibleFilters
-                    return 'Todas'
-                  }
-                  const keys = st.object ? Object.keys(st.object) : []
-                  const isAllTrue = !keys.some(key => !st.object[key])
-                  const isAllFalse = !keys.some(key => st.object[key])
-                  const trueKeys = keys.filter(key => st.object[key])
-                  let trueKeysLabel = ''
-                  trueKeys.forEach((key, index) => {
-                    trueKeysLabel += `${key}${
-                      index === trueKeys.length - 1 ? '' : ', '
-                    }`
-                  })
-                  return `${
-                    isAllTrue ? 'Todas' : isAllFalse ? 'Ninguna' : `${trueKeysLabel}`
+            tienda: {
+              label: 'Tienda',
+              renderFilterLabel: (st: any) => {
+                if (!st || !st.object) {
+                  // you should treat empty object cases only for alwaysVisibleFilters
+                  return 'Todas'
+                }
+                const keys = st.object ? Object.keys(st.object) : []
+                const isAllTrue = !keys.some((key) => !st.object[key])
+                const isAllFalse = !keys.some((key) => st.object[key])
+                const trueKeys = keys.filter((key) => st.object[key])
+                let trueKeysLabel = ''
+                trueKeys.forEach((key, index) => {
+                  trueKeysLabel += `${key}${
+                    index === trueKeys.length - 1 ? '' : ', '
                   }`
-                },
-                verbs: [
-                  {
-                    value: 'includes',
-                    object: (props: any) => <StoreSelectorObject {...props} />,
-                  },
-                ],
+                })
+                return `${
+                  isAllTrue
+                    ? 'Todas'
+                    : isAllFalse
+                    ? 'Ninguna'
+                    : `${trueKeysLabel}`
+                }`
               },
+              verbs: [
+                {
+                  value: 'includes',
+                  object: (props: any) => <StoreSelectorObject {...props} />,
+                },
+              ],
+            },
 
-              status: {
-                label: 'Status',
-                renderFilterLabel: (st: any) => {
-                  if (!st || !st.object) {
-                    // you should treat empty object cases only for alwaysVisibleFilters
-                    return 'Todas'
-                  }
-                  const keys = st.object ? Object.keys(st.object) : []
-                  const isAllTrue = !keys.some(key => !st.object[key])
-                  const isAllFalse = !keys.some(key => st.object[key])
-                  const trueKeys = keys.filter(key => st.object[key])
-                  let trueKeysLabel = ''
-                  trueKeys.forEach((key, index) => {
-                    trueKeysLabel += `${key}${
-                      index === trueKeys.length - 1 ? '' : ', '
-                    }`
-                  })
-                  return `${
-                    isAllTrue ? 'Todas' : isAllFalse ? 'Ninguna' : `${trueKeysLabel}`
+            status: {
+              label: 'Status',
+              renderFilterLabel: (st: any) => {
+                if (!st || !st.object) {
+                  // you should treat empty object cases only for alwaysVisibleFilters
+                  return 'Todas'
+                }
+                const keys = st.object ? Object.keys(st.object) : []
+                const isAllTrue = !keys.some((key) => !st.object[key])
+                const isAllFalse = !keys.some((key) => st.object[key])
+                const trueKeys = keys.filter((key) => st.object[key])
+                let trueKeysLabel = ''
+                trueKeys.forEach((key, index) => {
+                  trueKeysLabel += `${key}${
+                    index === trueKeys.length - 1 ? '' : ', '
                   }`
-                },
-                verbs: [
-                  {
-                    value: 'includes',
-                    object: (props: any) => <StatusSelectorObject {...props} />,
-                  },
-                ],
+                })
+                return `${
+                  isAllTrue
+                    ? 'Todas'
+                    : isAllFalse
+                    ? 'Ninguna'
+                    : `${trueKeysLabel}`
+                }`
               },
-
-            }}
-          />
-        </div>
-      <Header text="Todas las Apps"/>
-        {RenderCards}
+              verbs: [
+                {
+                  value: 'includes',
+                  object: (props: any) => <StatusSelectorObject {...props} />,
+                },
+              ],
+            },
+          }}
+        />
+      </div>
+      <Header text="Todas las Apps" />
+      {RenderCards}
     </>
   )
 }
